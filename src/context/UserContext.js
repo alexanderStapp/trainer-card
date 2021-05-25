@@ -25,12 +25,17 @@ export const UserProvider = (props) => {
             }).catch(err => console.log(err))
     }
 
+    const handleLogout = () => {
+        axios.get('/auth/logout')
+    }
+
     return (
         <UserContext.Provider value={{
             user,
             setUser,
             handleLogin,
             handleRegister,
+            handleLogout
         }}>
             {props.children}
         </UserContext.Provider>
