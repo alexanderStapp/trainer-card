@@ -2,6 +2,7 @@ import {Switch, Route} from 'react-router-dom'
 import Auth from './components/Auth'
 import Dash from './components/Dash'
 import Card from './components/Card'
+import Search from './components/Search'
 // import {UserContext} from './context/UserContext'
 // import {useContext} from 'react'
 
@@ -12,6 +13,7 @@ export default (
         <Route exact path='/' component={Dash} />
         <Route path='/auth' component={Auth} />
         <Route path='/card' component={Card}/>
+        <Route path='/search' component={Search}/>
         {/* <Route path={`/${user}`} component={Card}/> */}
     </Switch>
 )
