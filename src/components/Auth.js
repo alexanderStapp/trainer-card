@@ -4,8 +4,7 @@ import {UserContext} from '../context/UserContext'
 function Auth() {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-    const {user, handleLogin, handleRegister} = useContext(UserContext)
-    console.log(user)
+    const {handleLogin, handleRegister} = useContext(UserContext)
     return (
         <div>
             <input value={username} onChange={e => setUsername(e.target.value)} />
