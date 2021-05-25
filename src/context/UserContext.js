@@ -7,7 +7,6 @@ export const UserProvider = (props) => {
     const [user, setUser] = useState({
         username: null,
         password: null
-
     })
 
     const handleLogin = (username, password) => {
@@ -31,7 +30,7 @@ export const UserProvider = (props) => {
             user,
             setUser,
             handleLogin,
-            handleRegister
+            handleRegister,
         }}>
             {props.children}
         </UserContext.Provider>

@@ -11,10 +11,15 @@ export const CardProvider = (props) => {
         setEdit(!edit)
     }
 
+    const handleSave = () => {
+
+    }
+
     return (
         <CardContext.Provider value={{
             edit,
-            toggleEdit
+            toggleEdit,
+            handleSave
         }}>
             {props.children}
         </CardContext.Provider>
