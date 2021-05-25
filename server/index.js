@@ -8,6 +8,7 @@ const {CONNECTION_STRING, SESSION_SECRET, SERVER_PORT} = process.env
 // CONTROLLERS
 
 const authCtrl = require('./controllers/authController')
+const cardCtrl = require('./controllers/cardController')
 
 // INSTANCE CREATION
 const app = express()
@@ -38,7 +39,7 @@ massive({
     app.get('/auth/logout', authCtrl.logout)
 
 // card
-    // app.put('/api/card', cardCtrl.editCard)
+    app.put('/api/card/:user_id', cardCtrl.editCard)
 
 // request
     // app.post('/api/request', requestCtrl.addRequest)
