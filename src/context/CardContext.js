@@ -5,8 +5,7 @@ import {UserContext} from '../context/UserContext'
 export const CardContext = createContext()
 
 export const CardProvider = (props) => {
-    const {user} = useContext(UserContext)
-    const [card, setCard] = useState({})
+    const {user, setUser} = useContext(UserContext)
     const [edit, setEdit] = useState(false)
 
     const toggleEdit = () => {
@@ -15,7 +14,7 @@ export const CardProvider = (props) => {
 
     const handleSave = (threedsID, switchID) => {
         axios.put(`/api/card/${user.user_id}`, {threedsID, switchID})
-            .then(res => setCard(res.data)).catch(err => console.log(err))
+            .then(res => setUser(res.data)).catch(err => console.log(err))
         toggleEdit()
     }
 

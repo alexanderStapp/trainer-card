@@ -8,11 +8,7 @@ function Card() {
     const {edit, toggleEdit, handleSave} = useContext(CardContext)
     const {user} = useContext(UserContext)
 
-    useEffect(() => {
-
-    }, [])
-
-    return !edit ? (
+    return edit ? (
         <div>
             <h1>{user.username}</h1>
             <input value={threedsID} onChange={e => setThreedsID(e.target.value)} />
