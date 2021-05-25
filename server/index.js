@@ -9,6 +9,7 @@ const {CONNECTION_STRING, SESSION_SECRET, SERVER_PORT} = process.env
 
 const authCtrl = require('./controllers/authController')
 const cardCtrl = require('./controllers/cardController')
+const searchCtrl = require('./controllers/searchController')
 
 // INSTANCE CREATION
 const app = express()
@@ -45,6 +46,9 @@ massive({
     // app.post('/api/request', requestCtrl.addRequest)
     // app.delete('/api/request/:request_id', requestCtrl.deleteRequest)
     // app.put('/api/request/:request_id', requestCtrl.editRequest)
+
+// search
+    app.get('api/search/:username', searchCtrl.search)
 
 // feed
     // app.get('/api/feed', feedCtrl.getFeed)

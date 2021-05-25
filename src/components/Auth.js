@@ -4,14 +4,16 @@ import {UserContext} from '../context/UserContext'
 function Auth() {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-    const {user, handleLogin, handleRegister} = useContext(UserContext)
-    console.log(user)
+    const {handleLogin, handleRegister} = useContext(UserContext)
     return (
-        <div>
+        <div className='login'>
+            <h1>TrainerCard</h1>
             <input value={username} onChange={e => setUsername(e.target.value)} />
             <input value={password} onChange={e => setPassword(e.target.value)} />
-            <button onClick={() => handleLogin(username, password)}>Login</button>
-            <button onClick={() => handleRegister(username, password)}>Register</button>
+            <div className='auth-buttons'>
+                <button onClick={() => handleLogin(username, password)}>Login</button>
+                <button onClick={() => handleRegister(username, password)}>Register</button>
+            </div>
         </div>
     )
 }

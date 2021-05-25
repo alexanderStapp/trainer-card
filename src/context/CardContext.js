@@ -7,9 +7,7 @@ export const CardContext = createContext()
 export const CardProvider = (props) => {
     const {user} = useContext(UserContext)
     const [card, setCard] = useState({})
-    const [edit, setEdit] = useState({
-        editMode: false
-    })
+    const [edit, setEdit] = useState(false)
 
     const toggleEdit = () => {
         setEdit(!edit)
