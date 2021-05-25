@@ -14,6 +14,7 @@ export const UserProvider = (props) => {
         axios.post('/auth/login', {username, password})
             .then(res => {
                 setUser(res.data)
+                props.history.push('/')
             }).catch(err => console.log(err))
     }
 
@@ -21,12 +22,12 @@ export const UserProvider = (props) => {
         axios.post('/auth/register', {username, password})
             .then(res => {
                 setUser(res.data)
+                props.history.push('/')
             }).catch(err => console.log(err))
     }
 
     return (
         <UserContext.Provider value={{
-            test: 'hello world',
             user,
             setUser,
             handleLogin,
