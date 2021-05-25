@@ -4,12 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {UserProvider} from './context/UserContext'
+import {HashRouter} from 'react-router-dom';
+import {CardProvider} from './context/CardContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    <UserProvider>
-      <App />
-    </UserProvider>
+    <HashRouter>
+      <UserProvider>
+        <CardProvider>
+          <App />
+        </CardProvider>
+      </UserProvider>
+    </HashRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
