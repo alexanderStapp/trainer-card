@@ -9,7 +9,7 @@ const Header = () => {
         <header className='header'>
                 <h3>{user.username}</h3>
                 <Link to='/'>Feed</Link>
-                <Link to={`/${user}`}>Card</Link>
+                <Link to={`/${user.username}`}>Card</Link>
                 <Link to='/search'>Search</Link>
                 <Link to='/auth' onClick={handleLogout}>Logout</Link>
         </header>

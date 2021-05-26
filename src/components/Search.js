@@ -1,5 +1,6 @@
 import axios from 'axios'
 import {useState} from 'react'
+import {Link} from 'react-router-dom'
 
 function Search() {
     const [search, setSearch] = useState('')
@@ -9,7 +10,6 @@ function Search() {
         axios.get(`/api/search/${search}`)
             .then(res => {
                 setUsers([])
-                console.log(res.data)
                 setUsers(res.data)
             }).catch(err => console.log(err))
     }
@@ -21,7 +21,7 @@ function Search() {
             <br />
             {users.map(user => {
                 return (
-                    <h3 key={user.username}>{user.username}</h3>
+                    <Link to={`/${user.username}`} key={user.username}>{user.username}</Link>
                 )
             })}
         </div>

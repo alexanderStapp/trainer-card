@@ -38,8 +38,10 @@ massive({
     app.post('/auth/register', authCtrl.register)
     app.post('/auth/login', authCtrl.login)
     app.get('/auth/logout', authCtrl.logout)
+    app.get('/auth/me', authCtrl.getUser)
 
 // card
+    app.get('/api/card/:username', cardCtrl.getCard)
     app.put('/api/card/:user_id', cardCtrl.editCard)
 
 // request

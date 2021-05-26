@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {createContext, useState} from 'react'
+import {createContext, useEffect, useState} from 'react'
 import {useHistory} from 'react-router-dom'
 
 export const UserContext = createContext()
@@ -7,6 +7,12 @@ export const UserContext = createContext()
 export const UserProvider = (props) => {
     const [user, setUser] = useState(null)
     const {push} = useHistory()
+
+    useEffect(() => {
+        axios.get('/auth/me')
+            .then( res => setUser(res.data))
+            .catch(err => console.log(err))
+    }, [])
 
     const handleLogin = (username, password) => {
         axios.post('/auth/login', {username, password})
@@ -30,11 +36,6 @@ export const UserProvider = (props) => {
         setUser(null)
     }
 
-    // const handleSave = (threedsID, switchID) => {
-    //     axios.put(`/api/card/${user.user_id}`, {threedsID, switchID})
-    //         .then(res => setUser(...user, res.data)).catch(err => console.log(err))
-    // }
-
     return (
         <UserContext.Provider value={{
             user,
@@ -42,7 +43,6 @@ export const UserProvider = (props) => {
             handleLogin,
             handleRegister,
             handleLogout,
-            // handleSave
         }}>
             {props.children}
         </UserContext.Provider>

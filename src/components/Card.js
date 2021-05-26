@@ -1,27 +1,45 @@
-import {useContext, useState} from 'react'
+import axios from 'axios'
+import {useContext, useEffect, useState} from 'react'
 import {CardContext} from '../context/CardContext'
 import {UserContext} from '../context/UserContext'
 
-function Card() {
-    const [threedsID, setThreedsID] = useState('')
-    const [switchID, setSwitchID] = useState('')
-    const {edit, toggleEdit, handleSave} = useContext(CardContext)
+function Card(props) {
+    const [userInfo, setUserInfo] = useState(null)
+    const [editView, setEditView] = useState(false)
+    const {toggleEdit} = useContext(CardContext)
     const {user} = useContext(UserContext)
+    const {username} = props.match.params
 
-    return edit ? (
+    useEffect(() => {
+        axios.get(`/api/card/${username}`)
+            .then(res => {
+                console.log(res.data)
+                setUserInfo(res.data)
+            })
+            .catch(err => console.log(err))
+    }, [])
+
+    useEffect(() => {
+        if(user) {
+            if(user.username === username) {
+                setEditView(true)
+            }
+        } else {
+            setEditView(false)
+        }
+    }, [user])
+
+    return (
         <div>
-            <h1>{user.username}</h1>
-            <input value={threedsID} onChange={e => setThreedsID(e.target.value)} />
-            <input value={switchID} onChange={e => setSwitchID(e.target.value)} />
-            <button onClick={() => handleSave(threedsID, switchID)}>Save</button>
-        </div>
-    ) : (
-        <div>
-            <h1>{user.username}</h1>
-            <h2>{user.threeds.slice(0, 4)}-{user.threeds.slice(4, 8)}-{user.threeds.slice(8, 12)}</h2>
-            <h2>{user.switch.slice(0, 4)}-{user.switch.slice(4, 8)}-{user.switch.slice(8, 12)}</h2>
-            <img src={user.profile_pic} alt={user.username} />
-            <button onClick={toggleEdit}>Edit</button>
+            {userInfo && (
+                <>
+                    <h1>{userInfo.username}</h1>
+                    <h2>{userInfo.threeds.slice(0, 4)}-{userInfo.threeds.slice(4, 8)}-{userInfo.threeds.slice(8, 12)}</h2>
+                    <h2>{userInfo.switch.slice(0, 4)}-{userInfo.switch.slice(4, 8)}-{userInfo.switch.slice(8, 12)}</h2>
+                    <img src={userInfo.profile_pic} alt={userInfo.username} />
+                </>
+            )}
+            {editView && <button onClick={toggleEdit}>Edit</button>}
         </div>
     )
 }
