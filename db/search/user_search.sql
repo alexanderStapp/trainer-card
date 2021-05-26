@@ -1,3 +1,2 @@
-SELECT * FROM users
-WHERE username LIKE %$1%
-RETURNING username;
+SELECT username FROM users
+WHERE username LIKE '%' || $1 || '%'

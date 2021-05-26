@@ -12,8 +12,8 @@ export default (
     <Switch>
         <Route exact path='/' component={Dash} />
         <Route path='/auth' component={Auth} />
-        <Route path='/card' component={Card}/>
+        {/* <Route path='/card' component={Card}/> */}
         <Route path='/search' component={Search}/>
-        {/* <Route path={`/${user}`} component={Card}/> */}
+        <Route path={`/:username`} component={Card}/>
     </Switch>
 )

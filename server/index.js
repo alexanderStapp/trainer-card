@@ -48,7 +48,7 @@ massive({
     // app.put('/api/request/:request_id', requestCtrl.editRequest)
 
 // search
-    app.get('api/search/:username', searchCtrl.searchUsers)
+    app.get('/api/search/:username', searchCtrl.searchUsers)
 
 // feed
     // app.get('/api/feed', feedCtrl.getFeed)
