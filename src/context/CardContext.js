@@ -13,8 +13,8 @@ export const CardProvider = (props) => {
         push('/editcard')
     }
 
-    const handleSave = (threedsID, switchID) => {
-        axios.put(`/api/card/${user.user_id}`, {threedsID, switchID})
+    const handleSave = (threedsID, switchID, profile_pic) => {
+        axios.put(`/api/card/${user.user_id}`, {threedsID, switchID, profile_pic})
             .then(res => {
                 setUser(res.data)
                 push(`/${user.username}`)
