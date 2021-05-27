@@ -4,12 +4,12 @@ import {UserContext} from '../context/UserContext'
 import {useHistory} from 'react-router-dom'
 import {RiSave2Fill, RiArrowLeftFill} from 'react-icons/ri'
 
-function EditCard(props) {
+function EditCard() {
     const [threedsID, setThreedsID] = useState('')
     const [switchID, setSwitchID] = useState('')
-    const [profilePic, setProfilePic] = useState('')
-    const {handleSave} = useContext(CardContext)
     const {user} = useContext(UserContext)
+    const [profilePic, setProfilePic] = useState(user.pic)
+    const {handleSave} = useContext(CardContext)
     const {push} = useHistory()
 
     return (
@@ -20,9 +20,14 @@ function EditCard(props) {
             </span>
             <input value={threedsID} onChange={e => setThreedsID(e.target.value)} />
             <input value={switchID} onChange={e => setSwitchID(e.target.value)} />
-            <input value={profilePic} onChange={e => setProfilePic(e.target.value)} />
+            <select onChange={e => setProfilePic(e.target.value)}>
+                <option value={user.pic}>select something</option>
+                <option value={1}>1</option>
+                <option value={2}>2</option>
+                <option value={3}>3</option>
+            </select>
             <button className='undo' onClick={() => push(`/${user.username}`)}><RiArrowLeftFill /></button>
-            <button className='edit-save' onClick={() => handleSave(threedsID, switchID)}><RiSave2Fill /></button>
+            <button className='edit-save' onClick={() => handleSave(threedsID, switchID, profilePic)}><RiSave2Fill /></button>
         </div>
     )
 }

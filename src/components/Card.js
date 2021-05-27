@@ -15,8 +15,7 @@ function Card(props) {
         axios.get(`/api/card/${username}`)
             .then(res => {
                 setUserInfo(res.data)
-            })
-            .catch(err => console.log(err))
+            }).catch(err => console.log(err))
     }, [username])
 
     useEffect(() => {

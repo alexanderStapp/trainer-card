@@ -26,7 +26,7 @@ export const UserProvider = (props) => {
         axios.post('/auth/register', {username, password})
             .then(res => {
                 setUser(res.data)
-                push('/')
+                push('/dash')
             }).catch(err => console.log(err))
     }
 

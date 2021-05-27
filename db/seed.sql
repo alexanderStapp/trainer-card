@@ -4,7 +4,7 @@ CREATE TABLE users (
     password VARCHAR(1000),
     threeds VARCHAR(12),
     switch VARCHAR(12),
-    profile_pic INT REFERENCES profile_pics(pic_id)
+    pic INT REFERENCES profile_pics(pic_id)
 );
 
 CREATE TABLE requests (
