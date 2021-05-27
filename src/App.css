@@ -10,6 +10,12 @@
 	align-items: center;
 }
 
+.audio-control {
+  position: absolute;
+  top: 1.5%;
+  right: 2%;
+}
+
 .header {
   width: 50vw;
   height: 5vh;

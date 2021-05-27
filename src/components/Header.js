@@ -1,7 +1,6 @@
 import {Link} from 'react-router-dom'
-import {useContext, useState} from 'react'
+import {useContext} from 'react'
 import {UserContext} from '../context/UserContext'
-import Audio from './Audio'
 
 const Header = () => {
     const {user, handleLogout} = useContext(UserContext)
@@ -13,13 +12,11 @@ const Header = () => {
                 <Link to={`/${user.username}`}>Card</Link>
                 <Link to='/search'>Search</Link>
                 <Link to='/' onClick={handleLogout}>Logout</Link>
-                <Audio />
         </header>
     ) : (
         <header className='header'>
             <h2>TrainerCard</h2>
             <Link to='/' onClick={handleLogout}>Login</Link>
-            <Audio />
         </header>
     )
 }

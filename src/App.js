@@ -1,11 +1,15 @@
 import './App.css';
 import routes from './routes'
 import Header from './components/Header'
+import Audio from './components/Audio'
 
 function App() {
   return (
     <div className="App">
-      <Header />
+      <div>
+        <Header />
+        <Audio />
+      </div>
       {routes}
     </div>
   );
