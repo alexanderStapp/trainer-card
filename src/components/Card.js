@@ -26,7 +26,7 @@ function Card(props) {
         } else {
             setEditView(false)
         }
-    }, [user])
+    }, [username])
 
     return (
         <div>
