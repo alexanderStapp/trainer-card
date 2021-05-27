@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {createContext, useContext, useState} from 'react'
+import {createContext, useContext} from 'react'
 import {UserContext} from '../context/UserContext'
 import {useHistory} from 'react-router-dom'
 
@@ -9,8 +9,8 @@ export const CardProvider = (props) => {
     const {user, setUser} = useContext(UserContext)
     const {push} = useHistory()
 
-    const toggleEdit = () => {
-        push('/edit-card')
+    const handleEdit = () => {
+        push('/editcard')
     }
 
     const handleSave = (threedsID, switchID) => {
@@ -23,7 +23,7 @@ export const CardProvider = (props) => {
 
     return (
         <CardContext.Provider value={{
-            toggleEdit,
+            handleEdit,
             handleSave
         }}>
             {props.children}

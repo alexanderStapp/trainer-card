@@ -2,7 +2,7 @@ import {useContext, useState} from 'react'
 import {CardContext} from '../context/CardContext'
 import {UserContext} from '../context/UserContext'
 
-function EditCard() {
+function EditCard(props) {
     const [threedsID, setThreedsID] = useState('')
     const [switchID, setSwitchID] = useState('')
     const {handleSave} = useContext(CardContext)

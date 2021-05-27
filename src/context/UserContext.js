@@ -17,9 +17,8 @@ export const UserProvider = (props) => {
     const handleLogin = (username, password) => {
         axios.post('/auth/login', {username, password})
             .then(res => {
-                console.log(res.data)
                 setUser(res.data)
-                push('/')
+                push('/dash')
             }).catch(err => console.log(err))
     }
 

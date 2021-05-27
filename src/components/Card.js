@@ -6,18 +6,17 @@ import {UserContext} from '../context/UserContext'
 function Card(props) {
     const [userInfo, setUserInfo] = useState(null)
     const [editView, setEditView] = useState(false)
-    const {toggleEdit} = useContext(CardContext)
+    const {handleEdit} = useContext(CardContext)
     const {user} = useContext(UserContext)
     const {username} = props.match.params
 
     useEffect(() => {
         axios.get(`/api/card/${username}`)
             .then(res => {
-                console.log(res.data)
                 setUserInfo(res.data)
             })
             .catch(err => console.log(err))
-    }, [])
+    }, [username])
 
     useEffect(() => {
         if(user) {
@@ -39,7 +38,7 @@ function Card(props) {
                     <img src={userInfo.profile_pic} alt={userInfo.username} />
                 </>
             )}
-            {editView && <button onClick={toggleEdit}>Edit</button>}
+            {editView && <button onClick={handleEdit}>Edit</button>}
         </div>
     )
 }

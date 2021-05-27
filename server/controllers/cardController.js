@@ -11,8 +11,9 @@ module.exports = {
         const db = req.app.get('db')
         const {username} = req.params
         const [user] = await db.card.get_user_card(username)
-        delete user.password
-        console.log(user)
+        if(user) {
+            delete user.password
+        }
         return res.status(200).send(user)
     }
 }
