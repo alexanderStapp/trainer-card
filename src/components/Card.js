@@ -2,6 +2,7 @@ import axios from 'axios'
 import {useContext, useEffect, useState} from 'react'
 import {CardContext} from '../context/CardContext'
 import {UserContext} from '../context/UserContext'
+import {RiPencilFill} from 'react-icons/ri'
 
 function Card(props) {
     const [userInfo, setUserInfo] = useState(null)
@@ -29,16 +30,23 @@ function Card(props) {
     }, [username])
 
     return (
-        <div>
-            {userInfo && (
-                <>
-                    <h1>{userInfo.username}</h1>
-                    <h2>{userInfo.threeds.slice(0, 4)}-{userInfo.threeds.slice(4, 8)}-{userInfo.threeds.slice(8, 12)}</h2>
-                    <h2>{userInfo.switch.slice(0, 4)}-{userInfo.switch.slice(4, 8)}-{userInfo.switch.slice(8, 12)}</h2>
-                    <img src={userInfo.profile_pic} alt={userInfo.username} />
-                </>
-            )}
-            {editView && <button onClick={handleEdit}>Edit</button>}
+        <div className='trainer-card'>
+            {userInfo && (<>
+                <span className='card-item'>
+                    <h2>NAME: </h2>
+                    <h2>{userInfo.username}</h2>
+                </span>
+                <span className='card-item'>
+                    <h3>3DS ID: </h3>
+                    <h3>{userInfo.threeds.slice(0, 4)}-{userInfo.threeds.slice(4, 8)}-{userInfo.threeds.slice(8, 12)}</h3>
+                </span>
+                <span className='card-item'>
+                    <h3>SWITCH ID: </h3>
+                    <h3>{userInfo.switch.slice(0, 4)}-{userInfo.switch.slice(4, 8)}-{userInfo.switch.slice(8, 12)}</h3>
+                </span>
+                <img src={userInfo.profile_pic} alt={userInfo.username} />
+            </>)}
+            {editView && <button className='edit-save' onClick={handleEdit}><RiPencilFill /></button>}
         </div>
     )
 }

@@ -1,5 +1,21 @@
 * {
   margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: 'Pokemon-Dialogue';
+  src: URL('./fonts/pkmndp.ttf') format('truetype');
+}
+
+button {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
 }
 
 .App {
@@ -45,4 +61,37 @@
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
+}
+
+.trainer-card {
+  font-family: Pokemon-Dialogue;
+  text-shadow: 1.5px 1.5px rgb(150, 150, 150);
+  background-color: rgb(133, 210, 255);
+  display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: flex-start;
+  width: 400px;
+  padding: 20px;
+  position: absolute;
+  top: 10vh;
+}
+
+.card-item {
+  display: flex;
+	justify-content: space-between;
+	align-items: center;
+  width: 100%;
+}
+
+.edit-save {
+  position: absolute;
+  right: 8px;
+  bottom: -24px;
+}
+
+.undo {
+  position: absolute;
+  right: 34px;
+  bottom: -24px;
 }
