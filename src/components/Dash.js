@@ -3,19 +3,22 @@ import {useEffect, useState} from 'react'
 import {Link} from 'react-router-dom'
 
 function Dash() {
-    const [buddies, setBuddies] = useState(null)
+    const [buddies, setBuddies] = useState([])
     
     useEffect(() => {
-        axios.get('api/dash')
+        axios.get('/api/dash')
             .then(res => {
                 setBuddies(res.data)
+                console.log(res.data)
             }).catch(err => console.log(err))
     }, [])
 
-    return !buddies ? (
+    console.log(buddies)
+
+    return buddies.length === 0 ? (
         <div>
             <h2>buddies</h2>
-            <p>search a user and hit 'add buddy' to add them to your buddies list!</p>
+            <p>search a user and hit 'add buddy' to add them to your buddies list</p>
         </div>
     ) : (
         <div>

@@ -3,6 +3,7 @@ import {CardContext} from '../context/CardContext'
 import {UserContext} from '../context/UserContext'
 import {useHistory} from 'react-router-dom'
 import {RiSave2Fill, RiArrowLeftFill} from 'react-icons/ri'
+import InputMask from 'react-input-mask'
 
 function EditCard() {
     const {user} = useContext(UserContext)
@@ -20,23 +21,26 @@ function EditCard() {
                 <h3>NAME: </h3>
                 <h3>{user.username}</h3>
             </span>
-            <input
+            <InputMask
                 className='edit-threeds'
+                mask="9999-9999-9999"
+                maskChar=' '
+                alwaysShowMask='false'
                 value={threedsID}
                 onChange={e => setThreedsID(e.target.value)}
-                placeholder='3DS friend code'
             />
-            <input
+            <InputMask
                 className='edit-switch'
+                mask="9999-9999-9999"
+                maskChar=' '
+                alwaysShowMask='false'
                 value={switchID}
                 onChange={e => setSwitchID(e.target.value)}
-                placeholder='Switch friend code'
             />
             <input
                 className='edit-home'
                 value={homeID}
                 onChange={e => setHomeID(e.target.value)}
-                placeholder='Pokemon Home friend code'
             />
             <select className='edit-pic' onChange={e => setProfilePic(e.target.value)}>
                 <option value={user.pic}>select an option</option>

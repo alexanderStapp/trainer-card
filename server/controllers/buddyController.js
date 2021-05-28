@@ -13,6 +13,7 @@ module.exports = {
             return res.status(511).send('please login to view your buddies!')
         }
         const buddies = await db.buddies.get_buddies(user.user_id)
+        console.log(buddies)
         return res.status(200).send(buddies)
     }
 }

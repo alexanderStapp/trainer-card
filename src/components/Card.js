@@ -7,7 +7,7 @@ import {RiPencilFill, RiQrCodeFill} from 'react-icons/ri'
 function Card(props) {
     const [userInfo, setUserInfo] = useState(null)
     const [editView, setEditView] = useState(false)
-    const {handleEdit, setCurrentPic} = useContext(CardContext)
+    const {handleEdit} = useContext(CardContext)
     const {user} = useContext(UserContext)
     const {username} = props.match.params
 
@@ -15,7 +15,6 @@ function Card(props) {
         axios.get(`/api/card/${username}`)
             .then(res => {
                 setUserInfo(res.data)
-                setCurrentPic(res.data.profile_pic)
             }).catch(err => console.log(err))
     }, [username])
 
@@ -39,11 +38,11 @@ function Card(props) {
                 </span>
                 <span className='card-threeds'>
                     <h3>3DS ID: </h3>
-                    <h3>{userInfo.threeds.slice(0, 4)}-{userInfo.threeds.slice(4, 8)}-{userInfo.threeds.slice(8, 12)}</h3>
+                    <h3>{userInfo.threeds}</h3>
                 </span>
                 <span className='card-switch'>
                     <h3>SWITCH ID: </h3>
-                    <h3>{userInfo.switch.slice(0, 4)}-{userInfo.switch.slice(4, 8)}-{userInfo.switch.slice(8, 12)}</h3>
+                    <h3>{userInfo.switch}</h3>
                 </span>
                 <span className='card-home'>
                     <h3>HOME ID: </h3>
