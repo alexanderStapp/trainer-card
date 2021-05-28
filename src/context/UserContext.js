@@ -10,7 +10,7 @@ export const UserProvider = (props) => {
 
     useEffect(() => {
         axios.get('/auth/me')
-            .then( res => setUser(res.data))
+            .then(res => setUser(res.data))
             .catch(err => console.log(err))
     }, [])
 

@@ -9,7 +9,7 @@ const PlayPause = () => {
       <ReactHowler
         src='lab.mp3'
         mute={playpause}
-        volume={0.07}
+        volume={0.1}
         loop={true}
       />
       {!playpause ? <button onClick={() => setPlaypause(!playpause)}><RiVolumeUpFill /></button>

@@ -18,10 +18,10 @@ function EditCard() {
                 <h2>NAME: </h2>
                 <h2>{user.username}</h2>
             </span>
-            <input value={threedsID} onChange={e => setThreedsID(e.target.value)} />
-            <input value={switchID} onChange={e => setSwitchID(e.target.value)} />
-            <select onChange={e => setProfilePic(e.target.value)}>
-                <option value={user.pic}>select something</option>
+            <input className='edit-item' value={threedsID} onChange={e => setThreedsID(e.target.value)} />
+            <input className='edit-item' value={switchID} onChange={e => setSwitchID(e.target.value)} />
+            <select className='edit-item' onChange={e => setProfilePic(e.target.value)}>
+                <option value={user.pic}>select a trainer</option>
                 <option value={1}>1</option>
                 <option value={2}>2</option>
                 <option value={3}>3</option>

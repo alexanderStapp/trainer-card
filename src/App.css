@@ -67,10 +67,6 @@ button {
   font-family: Pokemon-Dialogue;
   text-shadow: 1.5px 1.5px rgb(150, 150, 150);
   background-color: rgb(133, 210, 255);
-  display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	align-items: flex-start;
   width: 400px;
   padding: 20px;
   position: absolute;
@@ -81,7 +77,18 @@ button {
   display: flex;
 	justify-content: space-between;
 	align-items: center;
-  width: 100%;
+  width: 75%;
+}
+
+.edit-item {
+  display: flex;
+	justify-content: space-between;
+	align-items: center;
+  width: 50%;
+}
+
+.card-pic {
+  float: right;
 }
 
 .edit-save {

@@ -1,6 +1,6 @@
 import axios from 'axios'
 import {createContext, useContext} from 'react'
-import {UserContext} from '../context/UserContext'
+import {UserContext} from './UserContext'
 import {useHistory} from 'react-router-dom'
 
 export const CardContext = createContext()

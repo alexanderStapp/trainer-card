@@ -23,4 +23,5 @@ CREATE TABLE buddies (
 CREATE TABLE profile_pics (
     pic_id SERIAL PRIMARY KEY,
     profile_pic VARCHAR(3000)
+    chibi VARCHAR(2000)
 );

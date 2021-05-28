@@ -31,6 +31,7 @@ function Card(props) {
     return (
         <div className='trainer-card'>
             {userInfo && (<>
+                <img className='card-pic' src={userInfo.profile_pic} alt={userInfo.username} />
                 <span className='card-item'>
                     <h2>NAME: </h2>
                     <h2>{userInfo.username}</h2>
@@ -43,7 +44,6 @@ function Card(props) {
                     <h3>SWITCH ID: </h3>
                     <h3>{userInfo.switch.slice(0, 4)}-{userInfo.switch.slice(4, 8)}-{userInfo.switch.slice(8, 12)}</h3>
                 </span>
-                <img src={userInfo.profile_pic} alt={userInfo.username} />
             </>)}
             {editView && <button className='edit-save' onClick={handleEdit}><RiPencilFill /></button>}
         </div>

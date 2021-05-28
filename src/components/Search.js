@@ -1,10 +1,12 @@
 import axios from 'axios'
-import {useState} from 'react'
+import {useContext, useState} from 'react'
 import {Link} from 'react-router-dom'
+import {BuddyContext} from '../context/BuddyContext'
 
 function Search() {
     const [search, setSearch] = useState('')
     const [users, setUsers] = useState([])
+    const {addBuddy} = useContext(BuddyContext)
 
     const handleSearch = (search) => {
         axios.get(`/api/search/${search}`)
@@ -12,7 +14,7 @@ function Search() {
                 setUsers([])
                 setUsers(res.data)
             }).catch(err => console.log(err))
-    }
+        }
 
     return (
         <div>
@@ -21,7 +23,10 @@ function Search() {
             <br />
             {users.map(user => {
                 return (
-                    <Link to={`/${user.username}`} key={user.username}>{user.username}</Link>
+                    <span>
+                        <Link to={`/${user.username}`} key={user.username}>{user.username}</Link>
+                        <button key={user.user_id} onClick={() => addBuddy(user.user_id)}>add buddy</button>
+                    </span>
                 )
             })}
         </div>

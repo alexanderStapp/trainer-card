@@ -6,14 +6,17 @@ import reportWebVitals from './reportWebVitals';
 import {UserProvider} from './context/UserContext'
 import {HashRouter} from 'react-router-dom';
 import {CardProvider} from './context/CardContext';
+import {BuddyProvider} from './context/BuddyContext';
 
 ReactDOM.render(
   <React.StrictMode>
     <HashRouter>
       <UserProvider>
-        <CardProvider>
-          <App />
-        </CardProvider>
+        <BuddyProvider>
+          <CardProvider>
+            <App />
+          </CardProvider>
+        </BuddyProvider>
       </UserProvider>
     </HashRouter>
   </React.StrictMode>,

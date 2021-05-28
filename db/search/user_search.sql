@@ -1,2 +1,2 @@
-SELECT username FROM users
-WHERE username LIKE '%' || $1 || '%'
+SELECT username, user_id FROM users
+WHERE username LIKE '%' || $1 || '%';
