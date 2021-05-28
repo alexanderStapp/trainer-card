@@ -5,25 +5,34 @@
 
 @font-face {
   font-family: 'Pokemon-Dialogue';
-  src: URL('./fonts/pkmndp.ttf') format('truetype');
+  src: URL("./fonts/pkmndp.ttf") format("truetype");
 }
 
 button {
-	background: none;
-	color: inherit;
-	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
 }
 
 .App {
   text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .audio-control {
@@ -35,19 +44,34 @@ button {
 .header {
   width: 50vw;
   height: 5vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-around;
-	align-items: center;
-	align-content: stretch;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: stretch;
+      align-content: stretch;
 }
 
 .login {
   width: 200px;
   height: 170px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-top: 15vh;
 }
 
@@ -57,16 +81,25 @@ button {
 
 .auth-buttons {
   width: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .trainer-card {
   font-family: Pokemon-Dialogue;
-  text-shadow: 1.5px 1.5px rgb(150, 150, 150);
-  background-color: rgb(133, 210, 255);
+  text-shadow: 1.5px 1.5px #969696;
+  background-color: #85d2ff;
   width: 400px;
   padding: 20px;
   position: absolute;
@@ -74,16 +107,28 @@ button {
 }
 
 .card-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-	justify-content: space-between;
-	align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 75%;
 }
 
 .edit-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-	justify-content: space-between;
-	align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 50%;
 }
 
@@ -97,22 +142,38 @@ button {
   bottom: -24px;
 }
 
-.undo {
+.undo-qr {
   position: absolute;
   right: 34px;
   bottom: -24px;
 }
 
 .buddy-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .buddy-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-	justify-content: space-between;
-	align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
 }
+/*# sourceMappingURL=App.css.map */

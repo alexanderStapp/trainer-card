@@ -23,8 +23,8 @@ function Dash() {
             <div className='buddy-list'>
                 {buddies.map(buddy => {
                     return (
-                        <span className='buddy-item'>
-                            <img src={buddy.chibi} alt={buddy.username} />
+                        <span className='buddy-item' key={buddy.user_buddy}>
+                            <img src={buddy.chibi} alt={buddy.username} key={buddy.pic} />
                             <Link to={`/${buddy.username}`} key={buddy.username}>{buddy.username}</Link>
                         </span>
                     )

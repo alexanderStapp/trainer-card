@@ -23,9 +23,9 @@ function Search() {
             <br />
             {users.map(user => {
                 return (
-                    <span>
+                    <span key={user.user_id}>
                         <Link to={`/${user.username}`} key={user.username}>{user.username}</Link>
-                        <button key={user.user_id} onClick={() => addBuddy(user.user_id)}>add buddy</button>
+                        <button onClick={() => addBuddy(user.user_id)}>add buddy</button>
                     </span>
                 )
             })}

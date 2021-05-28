@@ -2,7 +2,7 @@ import axios from 'axios'
 import {useContext, useEffect, useState} from 'react'
 import {CardContext} from '../context/CardContext'
 import {UserContext} from '../context/UserContext'
-import {RiPencilFill} from 'react-icons/ri'
+import {RiPencilFill, RiQrCodeFill} from 'react-icons/ri'
 
 function Card(props) {
     const [userInfo, setUserInfo] = useState(null)
@@ -45,6 +45,7 @@ function Card(props) {
                     <h3>{userInfo.switch.slice(0, 4)}-{userInfo.switch.slice(4, 8)}-{userInfo.switch.slice(8, 12)}</h3>
                 </span>
             </>)}
+            <button className='undo-qr'><RiQrCodeFill /></button>
             {editView && <button className='edit-save' onClick={handleEdit}><RiPencilFill /></button>}
         </div>
     )

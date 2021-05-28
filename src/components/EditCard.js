@@ -36,7 +36,7 @@ function EditCard() {
                 <option value={2}>2</option>
                 <option value={3}>3</option>
             </select>
-            <button className='undo' onClick={() => push(`/${user.username}`)}><RiArrowLeftFill /></button>
+            <button className='undo-qr' onClick={() => push(`/${user.username}`)}><RiArrowLeftFill /></button>
             <button className='edit-save' onClick={() => handleSave(threedsID, switchID, profilePic)}><RiSave2Fill /></button>
         </div>
     )
