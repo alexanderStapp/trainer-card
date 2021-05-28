@@ -75,8 +75,9 @@ button {
   margin-top: 15vh;
 }
 
-.login > h1 {
-  margin: 0;
+.loginput {
+  border: solid 1px #3a3a3a;
+  border-radius: 10px;
 }
 
 .auth-buttons {
@@ -98,15 +99,18 @@ button {
 
 .trainer-card {
   font-family: Pokemon-Dialogue;
+  color: #424242;
   text-shadow: 1.5px 1.5px #969696;
-  background-color: #85d2ff;
-  width: 400px;
-  padding: 20px;
+  background: url(./svg/Card-Front.png);
+  width: 461px;
+  height: 338px;
   position: absolute;
   top: 10vh;
 }
 
-.card-item {
+.card-name {
+  position: absolute;
+  top: 14.5%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -116,10 +120,13 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 75%;
+  width: 52%;
+  margin-left: 5%;
 }
 
-.edit-item {
+.card-threeds {
+  position: absolute;
+  top: 23.5%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -129,11 +136,119 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 50%;
+  width: 52%;
+  margin-left: 5%;
+}
+
+.edit-threeds {
+  position: absolute;
+  top: 23.5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 52%;
+  margin-left: 5%;
+  background: none;
+  color: inherit;
+  border: none;
+  outline: none;
+  height: 23.2px;
+}
+
+.card-switch {
+  position: absolute;
+  top: 37%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 52%;
+  margin-left: 5%;
+}
+
+.edit-switch {
+  position: absolute;
+  top: 37%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 52%;
+  margin-left: 5%;
+  background: none;
+  color: inherit;
+  border: none;
+  outline: none;
+  height: 23.2px;
+}
+
+.card-home {
+  position: absolute;
+  top: 47%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 52%;
+  margin-left: 5%;
+}
+
+.edit-home {
+  position: absolute;
+  top: 47%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 52%;
+  margin-left: 5%;
+  background: none;
+  color: inherit;
+  border: none;
+  outline: none;
+  height: 23.2px;
 }
 
 .card-pic {
-  float: right;
+  position: absolute;
+  top: 30%;
+  right: 10%;
+  width: 20%;
+}
+
+.edit-pic {
+  position: absolute;
+  top: 30%;
+  right: 10%;
+  width: 20%;
+  background: none;
+  color: inherit;
 }
 
 .edit-save {

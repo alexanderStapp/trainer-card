@@ -8,8 +8,8 @@ function Auth() {
     return (
         <div className='login'>
             <h1>TrainerCard</h1>
-            <input value={username} onChange={e => setUsername(e.target.value)} />
-            <input value={password} onChange={e => setPassword(e.target.value)} />
+            <input className='loginput' value={username} onChange={e => setUsername(e.target.value)} />
+            <input className='loginput' value={password} onChange={e => setPassword(e.target.value)} />
             <div className='auth-buttons'>
                 <button onClick={() => handleLogin(username, password)}>Login</button>
                 <button onClick={() => handleRegister(username, password)}>Register</button>

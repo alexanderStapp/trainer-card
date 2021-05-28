@@ -51,8 +51,9 @@ button {
   margin-top: 15vh;
 }
 
-.login > h1 {
-  margin: 0;
+.loginput {
+	border: solid 1px rgb(58, 58, 58);
+  border-radius: 10px;
 }
 
 .auth-buttons {
@@ -65,30 +66,152 @@ button {
 
 .trainer-card {
   font-family: Pokemon-Dialogue;
+  color: rgb(66, 66, 66);
   text-shadow: 1.5px 1.5px rgb(150, 150, 150);
-  background-color: rgb(133, 210, 255);
-  width: 400px;
-  padding: 20px;
+  background: url(./svg/Card-Front.png);
+  width: 461px;
+  height: 338px;
   position: absolute;
   top: 10vh;
 }
 
-.card-item {
-  display: flex;
-	justify-content: space-between;
-	align-items: center;
-  width: 75%;
+$item-flex: (
+  "display": flex,
+  "justify-content": space-between,
+  "align-items": center
+);
+$item-width: 52%;
+$item-margin: 5%;
+  
+$name-pos: (
+  "pos": absolute,
+  "top": 14.5%
+);
+
+$threeds-pos: (
+  "pos": absolute,
+  "top": 23.5%
+);
+
+$switch-pos: (
+  "pos": absolute,
+  "top": 37%
+);
+
+$home-pos: (
+  "pos": absolute,
+  "top": 47%
+);
+
+$edit-inputs: (
+  "back": none,
+  "color": inherit,
+	"border": none,
+	"padding": 0,
+	"font": inherit,
+	"outline": none,
+  "height": 23.2px
+);
+
+.card-name {
+  position: map-get( $name-pos, pos );
+  top: map-get( $name-pos, top );
+  display: map-get( $item-flex, display );
+	justify-content: map-get( $item-flex, justify-content );
+	align-items: map-get( $item-flex, align-items );
+  width: $item-width;
+  margin-left: $item-margin;
 }
 
-.edit-item {
-  display: flex;
-	justify-content: space-between;
-	align-items: center;
-  width: 50%;
+.card-threeds {
+  position: map-get( $threeds-pos, pos );
+  top: map-get( $threeds-pos, top );
+  display: map-get( $item-flex, display );
+	justify-content: map-get( $item-flex, justify-content );
+	align-items: map-get( $item-flex, align-items );
+  width: $item-width;
+  margin-left: $item-margin;
+}
+
+.edit-threeds {
+  position: map-get( $threeds-pos, pos );
+  top: map-get( $threeds-pos, top );
+  display: map-get( $item-flex, display );
+	justify-content: map-get( $item-flex, justify-content );
+	align-items: map-get( $item-flex, align-items );
+  width: $item-width;
+  margin-left: $item-margin;
+  background: map-get( $edit-inputs, back );
+  color: map-get( $edit-inputs, color );
+  border: map-get( $edit-inputs, border );
+  outline: map-get( $edit-inputs, outline );
+  height: map-get( $edit-inputs, height );
+}
+
+.card-switch {
+  position: map-get( $switch-pos, pos );
+  top: map-get( $switch-pos, top );
+  display: map-get( $item-flex, display );
+	justify-content: map-get( $item-flex, justify-content );
+	align-items: map-get( $item-flex, align-items );
+  width: $item-width;
+  margin-left: $item-margin;
+}
+
+.edit-switch {
+  position: map-get( $switch-pos, pos );
+  top: map-get( $switch-pos, top );
+  display: map-get( $item-flex, display );
+	justify-content: map-get( $item-flex, justify-content );
+	align-items: map-get( $item-flex, align-items );
+  width: $item-width;
+  margin-left: $item-margin;
+  background: map-get( $edit-inputs, back );
+  color: map-get( $edit-inputs, color );
+  border: map-get( $edit-inputs, border );
+  outline: map-get( $edit-inputs, outline );
+  height: map-get( $edit-inputs, height );
+}
+
+.card-home {
+  position: map-get( $home-pos, pos );
+  top: map-get( $home-pos, top );
+  display: map-get( $item-flex, display );
+	justify-content: map-get( $item-flex, justify-content );
+	align-items: map-get( $item-flex, align-items );
+  width: $item-width;
+  margin-left: $item-margin;
+}
+
+.edit-home {
+  position: map-get( $home-pos, pos );
+  top: map-get( $home-pos, top );
+  display: map-get( $item-flex, display );
+	justify-content: map-get( $item-flex, justify-content );
+	align-items: map-get( $item-flex, align-items );
+  width: $item-width;
+  margin-left: $item-margin;
+  background: map-get( $edit-inputs, back );
+  color: map-get( $edit-inputs, color );
+  border: map-get( $edit-inputs, border );
+  outline: map-get( $edit-inputs, outline );
+  height: map-get( $edit-inputs, height );
 }
 
 .card-pic {
-  float: right;
+  position: absolute;
+  top: 30%;
+  right: 10%;
+  width: 20%;
+}
+
+.edit-pic {
+  position: absolute;
+  top: 30%;
+  right: 10%;
+  width: 20%;
+  background: map-get( $edit-inputs, back );
+  color: map-get( $edit-inputs, color );
 }
 
 .edit-save {

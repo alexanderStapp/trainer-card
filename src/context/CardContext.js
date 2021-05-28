@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {createContext, useContext} from 'react'
+import {createContext, useContext, useState} from 'react'
 import {UserContext} from './UserContext'
 import {useHistory} from 'react-router-dom'
 
@@ -13,18 +13,19 @@ export const CardProvider = (props) => {
         push('/editcard')
     }
 
-    const handleSave = (threedsID, switchID, profile_pic) => {
-        axios.put(`/api/card/${user.user_id}`, {threedsID, switchID, profile_pic})
+    const handleSave = (threedsID, switchID, homeID, profile_pic) => {
+        axios.put(`/api/card/${user.user_id}`, {threedsID, switchID, homeID, profile_pic})
             .then(res => {
                 setUser(res.data)
                 push(`/${user.username}`)
+                console.log(user)
             }).catch(err => console.log(err))
     }
 
     return (
         <CardContext.Provider value={{
             handleEdit,
-            handleSave
+            handleSave,
         }}>
             {props.children}
         </CardContext.Provider>

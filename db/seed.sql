@@ -2,8 +2,9 @@ CREATE TABLE users (
     user_id SERIAL PRIMARY KEY,
     username VARCHAR(50),
     password VARCHAR(1000),
-    threeds VARCHAR(12),
-    switch VARCHAR(12),
+    threeds VARCHAR(20),
+    switch VARCHAR(20),
+    home VARCHAR(20),
     pic INT REFERENCES profile_pics(pic_id)
 );
 
