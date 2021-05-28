@@ -55,5 +55,5 @@ massive({
 
 // feed
     app.post('/api/dash/:buddy_id', buddyCtrl.addBuddy)
-    // app.get('/api/dash', dashCtrl.getDash)
+    app.get('/api/dash', buddyCtrl.getBuddies)
     // app.delete('/api/dash/:user_id', dashCtrl.removeUser)
