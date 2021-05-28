@@ -102,3 +102,17 @@ button {
   right: 34px;
   bottom: -24px;
 }
+
+.buddy-list {
+  display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.buddy-item {
+  display: flex;
+	justify-content: space-between;
+	align-items: center;
+  width: 100%;
+}

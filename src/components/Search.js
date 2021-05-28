@@ -1,7 +1,7 @@
 import axios from 'axios'
 import {useContext, useState} from 'react'
-import {Link} from 'react-router-dom'
 import {BuddyContext} from '../context/BuddyContext'
+import {Link} from 'react-router-dom'
 
 function Search() {
     const [search, setSearch] = useState('')
