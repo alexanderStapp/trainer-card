@@ -43,7 +43,10 @@ function EditCard() {
             </span>
             <span className='edit-home'>
                 <h3>HOME ID:</h3>
-                <input
+                <InputMask
+                    mask="aaaaaaaaaaaa"
+                    maskChar=' '
+                    alwaysShowMask='false'
                     value={homeID}
                     onChange={e => setHomeID(e.target.value)}
                 />

@@ -46,7 +46,7 @@ function Card(props) {
                 </span>
                 <span className='card-home'>
                     <h3>HOME ID:</h3>
-                    <h3>{userInfo.home}</h3>
+                    <h3>{userInfo.home.toUpperCase()}</h3>
                 </span>
             </>)}
             <button className='undo-qr'><RiQrCodeFill /></button>
