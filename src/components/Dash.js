@@ -9,11 +9,8 @@ function Dash() {
         axios.get('/api/dash')
             .then(res => {
                 setBuddies(res.data)
-                console.log(res.data)
             }).catch(err => console.log(err))
     }, [])
-
-    console.log(buddies)
 
     return buddies.length === 0 ? (
         <div>

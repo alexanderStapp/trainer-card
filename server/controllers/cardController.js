@@ -15,5 +15,11 @@ module.exports = {
             delete user.password
         }
         return res.status(200).send(user)
+    },
+    getProfilePics: async (req, res) => {
+        const db = req.app.get('db')
+        const profilePics = await db.card.get_profile_pics()
+        console.log(profilePics)
+        return res.status(200).send(profilePics)
     }
 }

@@ -1,9 +1,11 @@
-import {useContext, useState} from 'react'
+import {useContext, useEffect, useState} from 'react'
 import {CardContext} from '../context/CardContext'
 import {UserContext} from '../context/UserContext'
 import {useHistory} from 'react-router-dom'
 import {RiSave2Fill, RiArrowLeftFill} from 'react-icons/ri'
 import InputMask from 'react-input-mask'
+import {createUseStyles} from 'react-jss'
+import axios from 'axios'
 
 function EditCard() {
     const {user} = useContext(UserContext)
@@ -11,9 +13,17 @@ function EditCard() {
     const [switchID, setSwitchID] = useState('')
     const [homeID, setHomeID] = useState('')
     const [profilePic, setProfilePic] = useState(user.pic)
+    const [picSelect, setPicSelect] = useState([])
     const {handleSave} = useContext(CardContext)
     const {push} = useHistory()
 
+    useEffect(() => {
+        axios.get('/api/card/pics')
+            .then(res => {
+                console.log(res.data)
+                setPicSelect(res.data)
+            }).catch(err => console.log(err))
+    }, [])
 
     return (
         <div className='trainer-card'>

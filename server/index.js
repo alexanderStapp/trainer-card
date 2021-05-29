@@ -44,6 +44,7 @@ massive({
 // card
     app.get('/api/card/:username', cardCtrl.getCard)
     app.put('/api/card/:user_id', cardCtrl.editCard)
+    app.get('/api/card/pics', cardCtrl.getProfilePics)
 
 // request
     // app.post('/api/request', requestCtrl.addRequest)
