@@ -33,19 +33,19 @@ function Card(props) {
             {userInfo && (<>
                 <img className='card-pic' src={userInfo.profile_pic} alt={userInfo.username} />
                 <span className='card-name'>
-                    <h3>NAME: </h3>
+                    <h3>NAME:</h3>
                     <h3>{userInfo.username}</h3>
                 </span>
                 <span className='card-threeds'>
-                    <h3>3DS ID: </h3>
+                    <h3>3DS ID:</h3>
                     <h3>{userInfo.threeds}</h3>
                 </span>
                 <span className='card-switch'>
-                    <h3>SWITCH ID: </h3>
+                    <h3>SWITCH ID:</h3>
                     <h3>{userInfo.switch}</h3>
                 </span>
                 <span className='card-home'>
-                    <h3>HOME ID: </h3>
+                    <h3>HOME ID:</h3>
                     <h3>{userInfo.home}</h3>
                 </span>
             </>)}

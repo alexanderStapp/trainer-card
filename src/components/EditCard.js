@@ -1,4 +1,4 @@
-import {useContext, useState, useEffect} from 'react'
+import {useContext, useState} from 'react'
 import {CardContext} from '../context/CardContext'
 import {UserContext} from '../context/UserContext'
 import {useHistory} from 'react-router-dom'
@@ -21,27 +21,33 @@ function EditCard() {
                 <h3>NAME: </h3>
                 <h3>{user.username}</h3>
             </span>
-            <InputMask
-                className='edit-threeds'
-                mask="9999-9999-9999"
-                maskChar=' '
-                alwaysShowMask='false'
-                value={threedsID}
-                onChange={e => setThreedsID(e.target.value)}
-            />
-            <InputMask
-                className='edit-switch'
-                mask="9999-9999-9999"
-                maskChar=' '
-                alwaysShowMask='false'
-                value={switchID}
-                onChange={e => setSwitchID(e.target.value)}
-            />
-            <input
-                className='edit-home'
-                value={homeID}
-                onChange={e => setHomeID(e.target.value)}
-            />
+            <span className='edit-threeds'>
+                <h3>3DS ID:</h3>
+                <InputMask
+                    mask="9999-9999-9999"
+                    maskChar=' '
+                    alwaysShowMask='false'
+                    value={threedsID}
+                    onChange={e => setThreedsID(e.target.value)}
+                />
+            </span>
+            <span className='edit-switch'>
+                <h3>SWITCH ID:</h3>
+                <InputMask
+                    mask="9999-9999-9999"
+                    maskChar=' '
+                    alwaysShowMask='false'
+                    value={switchID}
+                    onChange={e => setSwitchID(e.target.value)}
+                />
+            </span>
+            <span className='edit-home'>
+                <h3>HOME ID:</h3>
+                <input
+                    value={homeID}
+                    onChange={e => setHomeID(e.target.value)}
+                />
+            </span>
             <select className='edit-pic' onChange={e => setProfilePic(e.target.value)}>
                 <option value={user.pic}>select an option</option>
                 <option value={1}>1</option>

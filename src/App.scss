@@ -85,17 +85,17 @@ $item-margin: 5%;
   
 $name-pos: (
   "pos": absolute,
-  "top": 14.5%
+  "top": 14.8%
 );
 
 $threeds-pos: (
   "pos": absolute,
-  "top": 23.5%
+  "top": 23.8%
 );
 
 $switch-pos: (
   "pos": absolute,
-  "top": 37%
+  "top": 37.5%
 );
 
 $home-pos: (
@@ -104,13 +104,14 @@ $home-pos: (
 );
 
 $edit-inputs: (
+  "weight": bold,
+  "width": 45%,
   "back": none,
   "color": inherit,
 	"border": none,
 	"padding": 0,
 	"font": inherit,
-	"outline": none,
-  "height": 23.2px
+	"outline": none
 );
 
 .card-name {
@@ -141,6 +142,14 @@ $edit-inputs: (
 	align-items: map-get( $item-flex, align-items );
   width: $item-width;
   margin-left: $item-margin;
+}
+
+.edit-threeds > input {
+  font-family: Pokemon-Dialogue;
+  color: rgb(66, 66, 66);
+  text-shadow: 1.5px 1.5px rgb(150, 150, 150);
+  font-weight: map-get( $edit-inputs, weight );
+  width: map-get( $edit-inputs, width );
   background: map-get( $edit-inputs, back );
   color: map-get( $edit-inputs, color );
   border: map-get( $edit-inputs, border );
@@ -166,6 +175,14 @@ $edit-inputs: (
 	align-items: map-get( $item-flex, align-items );
   width: $item-width;
   margin-left: $item-margin;
+}
+
+.edit-switch > input {
+  font-family: Pokemon-Dialogue;
+  color: rgb(66, 66, 66);
+  text-shadow: 1.5px 1.5px rgb(150, 150, 150);
+  font-weight: map-get( $edit-inputs, weight );
+  background: map-get( $edit-inputs, width );
   background: map-get( $edit-inputs, back );
   color: map-get( $edit-inputs, color );
   border: map-get( $edit-inputs, border );
@@ -191,6 +208,14 @@ $edit-inputs: (
 	align-items: map-get( $item-flex, align-items );
   width: $item-width;
   margin-left: $item-margin;
+}
+
+.edit-home > input {
+  font-family: Pokemon-Dialogue;
+  color: rgb(66, 66, 66);
+  text-shadow: 1.5px 1.5px rgb(150, 150, 150);
+  font-weight: map-get( $edit-inputs, weight );
+  background: map-get( $edit-inputs, width );
   background: map-get( $edit-inputs, back );
   color: map-get( $edit-inputs, color );
   border: map-get( $edit-inputs, border );
