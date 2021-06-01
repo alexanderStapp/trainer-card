@@ -265,3 +265,9 @@ $edit-inputs: (
 	align-items: center;
   width: 100%;
 }
+
+.poke-item {
+  display: flex;
+	justify-content: space-between;
+	align-items: center;
+}

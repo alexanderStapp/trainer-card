@@ -7,16 +7,19 @@ import {UserProvider} from './context/UserContext'
 import {HashRouter} from 'react-router-dom';
 import {CardProvider} from './context/CardContext';
 import {BuddyProvider} from './context/BuddyContext';
+import {TradeProvider} from './context/TradeContext'
 
 ReactDOM.render(
   <React.StrictMode>
     <HashRouter>
       <UserProvider>
-        <BuddyProvider>
-          <CardProvider>
-            <App />
-          </CardProvider>
-        </BuddyProvider>
+        <TradeProvider>
+          <BuddyProvider>
+            <CardProvider>
+              <App />
+            </CardProvider>
+          </BuddyProvider>
+        </TradeProvider>
       </UserProvider>
     </HashRouter>
   </React.StrictMode>,
