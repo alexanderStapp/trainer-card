@@ -10,13 +10,11 @@ const Pokemon = () => {
     const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon')
     const [nextUrl, setNextUrl] = useState('')
     const [prevUrl, setPrevUrl] = useState('')
-    const {user} = useContext(UserContext)
     const {lookingFor, willing, handleLooking, handleWilling, handleSubmit} = useContext(TradeContext)
 
     useEffect(() => {
         axios.get(url)
             .then(res => {
-                console.log(res.data)
                 setPokemon(res.data.results)
                 setNextUrl(res.data.next)
                 setPrevUrl(res.data.previous)
@@ -24,13 +22,14 @@ const Pokemon = () => {
     }, [url])
 
     return (
-        <div>
+        <div className='trade-view'>
             <h3>looking for {lookingFor.name}</h3>
             <h3>willing to trade {willing.name}</h3>
+            <button onClick={() => handleSubmit(lookingFor.id, willing.id)}>submit</button>
             <div className='poke-item'>
-                <button>looking for</button>
+                <button onClick={() => handleLooking('any pokemon')}>looking for</button>
                 <p>any pokemon</p>
-                <button>willing to trade</button>
+                <button onClick={() => handleWilling('any pokemon')}>willing to trade</button>
             </div>
             {pokemon.map(poke => {
                 return (
@@ -41,8 +40,10 @@ const Pokemon = () => {
                     </div>
                 )
             })}
-            {prevUrl && <button onClick={() => setUrl(prevUrl)}>previous 20</button>}
-            {nextUrl && <button onClick={() => setUrl(nextUrl)}>next 20</button>}
+            <span className='prev-next'>
+                {nextUrl && <button onClick={() => setUrl(nextUrl)}>next 20</button>}
+                {prevUrl && <button onClick={() => setUrl(prevUrl)}>previous 20</button>}
+            </span>
         </div>
     )
 }

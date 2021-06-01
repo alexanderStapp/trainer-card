@@ -266,8 +266,19 @@ $edit-inputs: (
   width: 100%;
 }
 
+.trade-view {
+  width: 55vw;
+}
+
 .poke-item {
   display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.prev-next {
+  display: flex;
+  flex-direction: row-reverse;
 	justify-content: space-between;
 	align-items: center;
 }

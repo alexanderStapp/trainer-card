@@ -4,28 +4,32 @@ import {createContext, useState} from 'react'
 export const TradeContext = createContext()
 
 export const TradeProvider = (props) => {
-    const [lookingFor, setLookingFor] = useState({name: '(add a pokemon)'})
-    const [willing, setWilling] = useState({name: '(add a pokemon)'})
+    const [lookingFor, setLookingFor] = useState({name: 'any pokemon', id: 0})
+    const [willing, setWilling] = useState({name: 'any pokemon', id: 0})
 
     const handleLooking = (name) => {
-        axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
+        name === 'any pokemon'
+        ? setLookingFor({name: 'any pokemon', id: 0})
+        : axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
             .then(res => {
                 setLookingFor(res.data)
-            })
+            }).catch(err => console.log(err))
     }
 
     const handleWilling = (name) => {
-        axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
+        name === 'any pokemon'
+        ? setWilling({name: 'any pokemon', id: 0})
+        : axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
             .then(res => {
                 setWilling(res.data)
-            })
+            }).catch(err => console.log(err))
     }
 
-    const handleSubmit = (user_id, lookingFor, willing, notes) => {
-        axios.post('api/trade', {user_id, lookingFor, willing, notes})
+    const handleSubmit = (lookingFor, willing) => {
+        axios.post('api/trade', {lookingFor, willing})
             .then(
-                setLookingFor(''),
-                setWilling('')
+                setLookingFor({name: 'any pokemon', id: 0}),
+                setWilling({name: 'any pokemon', id: 0})
             ).catch(err => console.log(err))
     }
 
