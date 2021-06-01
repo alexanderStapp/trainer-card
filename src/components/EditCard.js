@@ -7,23 +7,42 @@ import InputMask from 'react-input-mask'
 import {createUseStyles} from 'react-jss'
 import axios from 'axios'
 
+
 function EditCard() {
-    const {user} = useContext(UserContext)
+    const {user, setUser} = useContext(UserContext)
     const [threedsID, setThreedsID] = useState('')
     const [switchID, setSwitchID] = useState('')
     const [homeID, setHomeID] = useState('')
     const [profilePic, setProfilePic] = useState(user.pic)
-    const [picSelect, setPicSelect] = useState([])
+    // const [picSelect, setPicSelect] = useState([])
     const {handleSave} = useContext(CardContext)
     const {push} = useHistory()
 
+    // useEffect(() => {
+    //     axios.get('/api/card/')
+    //         .then(res => {
+    //             console.log(res.data)
+    //             setPicSelect(res.data)
+    //         }).catch(err => console.log(err))
+    // }, [])
+
     useEffect(() => {
-        axios.get('/api/card/pics')
+        axios.get(`/api/card/${user.username}`)
             .then(res => {
-                console.log(res.data)
-                setPicSelect(res.data)
+                setUser(res.data)
             }).catch(err => console.log(err))
     }, [])
+
+    const useStyles = createUseStyles ({
+        currentPic: {
+            backgroundImage: "url(https://cdn2.bulbagarden.net/upload/0/00/Spr_DP_Dawn.png)",
+        },
+        // allPics: {
+        //     backgroundImage: `url(${picSelect[0].profile_pic})`
+        // }
+    })
+    
+    const classes = useStyles()
 
     return (
         <div className='trainer-card'>
@@ -62,8 +81,8 @@ function EditCard() {
                 />
             </span>
             <select className='edit-pic' onChange={e => setProfilePic(e.target.value)}>
-                <option value={user.pic}>select an option</option>
-                <option value={1}>1</option>
+                <option className={classes.currentPic} value={user.pic}>select an option</option>
+                <option className={classes.currentPic} value={1}>1</option>
                 <option value={2}>2</option>
                 <option value={3}>3</option>
             </select>

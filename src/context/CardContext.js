@@ -18,7 +18,6 @@ export const CardProvider = (props) => {
             .then(res => {
                 setUser(res.data)
                 push(`/${user.username}`)
-                console.log(user)
             }).catch(err => console.log(err))
     }
 
