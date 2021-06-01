@@ -11,6 +11,7 @@ const authCtrl = require('./controllers/authController')
 const cardCtrl = require('./controllers/cardController')
 const searchCtrl = require('./controllers/searchController')
 const buddyCtrl = require('./controllers/buddyController')
+const tradeCtrl = require ('./controllers/tradeController')
 
 // INSTANCE CREATION
 const app = express()
@@ -46,10 +47,10 @@ massive({
     app.put('/api/card/:user_id', cardCtrl.editCard)
     app.get('/api/card/', cardCtrl.getProfilePics)
 
-// request
-    // app.post('/api/request', requestCtrl.addRequest)
-    // app.delete('/api/request/:request_id', requestCtrl.deleteRequest)
-    // app.put('/api/request/:request_id', requestCtrl.editRequest)
+// trade
+    app.post('/api/trade', tradeCtrl.createTrade)
+    // app.delete('/api/trade/:request_id', requestCtrl.deleteRequest)
+    // app.put('/api/trade/:request_id', requestCtrl.editRequest)
 
 // search
     app.get('/api/search/:username', searchCtrl.searchUsers)

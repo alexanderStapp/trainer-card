@@ -4,6 +4,7 @@ import Dash from './components/Dash'
 import Card from './components/Card'
 import EditCard from './components/EditCard'
 import Search from './components/Search'
+import Pokemon from './components/Pokemon'
 
 export default (
     <Switch>
@@ -11,6 +12,7 @@ export default (
         <Route path='/dash' component={Dash} />
         <Route path='/search' component={Search} />
         <Route path='/editcard' component={EditCard} />
+        <Route path='/pokemon' component={Pokemon} />
         <Route path='/:username' component={Card} />
     </Switch>
 )

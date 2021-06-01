@@ -8,10 +8,11 @@ CREATE TABLE users (
     pic INT REFERENCES profile_pics(pic_id)
 );
 
-CREATE TABLE requests (
-    request_id SERIAL PRIMARY KEY,
+CREATE TABLE trades (
+    trade_id SERIAL PRIMARY KEY,
     user_id INT REFERENCES users(user_id),
-    poke_ID INT,
+    poke_ID1 VARCHAR(10),
+    poke_ID2 VARCHAR(10),
     notes VARCHAR(100)
 );
 
