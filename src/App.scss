@@ -68,11 +68,19 @@ button {
   font-family: Pokemon-Dialogue;
   color: rgb(66, 66, 66);
   text-shadow: 1.5px 1.5px rgb(150, 150, 150);
-  background: url(./svg/Card-Front.png);
   width: 461px;
   height: 338px;
   position: absolute;
   top: 10vh;
+  will-change: transform, opacity;
+}
+
+.front {
+  background: url(./svg/Card-Front.png);
+}
+
+.back {
+  background: url(./svg/Card-Back.png);
 }
 
 $item-flex: (
