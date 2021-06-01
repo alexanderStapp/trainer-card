@@ -48,6 +48,7 @@ massive({
     app.get('/api/card/', cardCtrl.getProfilePics)
 
 // trade
+    app.get('/api/trade/:user_id', tradeCtrl.getTrades)
     app.post('/api/trade', tradeCtrl.createTrade)
     // app.delete('/api/trade/:request_id', requestCtrl.deleteRequest)
     // app.put('/api/trade/:request_id', requestCtrl.editRequest)
