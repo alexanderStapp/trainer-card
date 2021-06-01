@@ -1,12 +1,9 @@
 import axios from 'axios'
 import {useState, useEffect, useContext} from 'react'
-import {UserContext} from '../context/UserContext'
 import {TradeContext} from '../context/TradeContext'
 
 const Pokemon = () => {
-    const [pokemon, setPokemon] = useState([
-        {name: 'loading...'}
-    ])
+    const [pokemon, setPokemon] = useState([])
     const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon')
     const [nextUrl, setNextUrl] = useState('')
     const [prevUrl, setPrevUrl] = useState('')
@@ -25,7 +22,7 @@ const Pokemon = () => {
         <div className='trade-view'>
             <h3>looking for {lookingFor.name}</h3>
             <h3>willing to trade {willing.name}</h3>
-            <button onClick={() => handleSubmit(lookingFor.id, willing.id)}>submit</button>
+            <button onClick={() => handleSubmit(lookingFor.id, lookingFor.name, lookingFor.sprites.front_default, willing.id, willing.name, willing.sprites.front_default)}>submit</button>
             <div className='poke-item'>
                 <button onClick={() => handleLooking('any pokemon')}>looking for</button>
                 <p>any pokemon</p>

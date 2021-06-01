@@ -3,11 +3,12 @@ import {useContext, useEffect, useState} from 'react'
 import {CardContext} from '../context/CardContext'
 import {UserContext} from '../context/UserContext'
 import {RiPencilFill, RiQrCodeFill} from 'react-icons/ri'
+import {useSpring, animated} from 'react-spring'
 
 function Card(props) {
     const [userInfo, setUserInfo] = useState(null)
     const [editView, setEditView] = useState(false)
-    const [trades, setTrades] = useState({})
+    const [trades, setTrades] = useState([])
     const {handleEdit} = useContext(CardContext)
     const {user} = useContext(UserContext)
     const {username} = props.match.params
@@ -20,7 +21,6 @@ function Card(props) {
         axios.get(`api/trade/${user.user_id}`)
             .then(res => {
                 setTrades(res.data)
-                console.log(res.data)
             }).catch(err => console.log(err))
     }, [username])
 
@@ -54,15 +54,13 @@ function Card(props) {
                     <h3>HOME ID:</h3>
                     <h3>{userInfo.home.toUpperCase()}</h3>
                 </span>
-                <div>
-                    {trades.map(trade => {
-                        return (
-                            <div className='trade-item'>
-                                <h3>looking for {trade.poke_id1} willing to trade {trade.poke_id2}</h3>
-                            </div>
-                        )
-                    })}
-                </div>
+                {trades.map(trade => {
+                    return (
+                        <div key={trade.trade_id} className='trade-item'>
+                            <h3>looking for {trade.name1} <img src={trade.sprite1} alt={trade.name1} /> willing to trade {trade.name2} <img src={trade.sprite2} alt={trade.name2} /></h3>
+                        </div>
+                    )
+                })}
             </>)}
             <button className='undo-qr'><RiQrCodeFill /></button>
             {editView && <button className='edit-save' onClick={handleEdit}><RiPencilFill /></button>}

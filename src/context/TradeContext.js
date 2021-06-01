@@ -25,8 +25,8 @@ export const TradeProvider = (props) => {
             }).catch(err => console.log(err))
     }
 
-    const handleSubmit = (lookingFor, willing) => {
-        axios.post('api/trade', {lookingFor, willing})
+    const handleSubmit = (lookingFor, lookingName, lookingSprite, willing, willingName, willingSprite) => {
+        axios.post('api/trade', {lookingFor, lookingName, lookingSprite, willing, willingName, willingSprite})
             .then(
                 setLookingFor({name: 'any pokemon', id: 0}),
                 setWilling({name: 'any pokemon', id: 0})
