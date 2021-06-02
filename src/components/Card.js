@@ -47,7 +47,7 @@ function Card(props) {
     }, [username])
 
     return (
-        <div onClick={() => setFlip(flipped => !flipped)} className='trainer-card'>
+        <div onClick={() => setFlip(flipped => !flipped)} className='trainer-card extra-card'>
             <animated.div className="front trainer-card" style={{opacity: opacity.to(o => 1 - o), transform}} >
                 {userInfo && (<>
                     <img className='card-pic' src={userInfo.profile_pic} alt={userInfo.username} />
