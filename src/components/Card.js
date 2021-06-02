@@ -71,21 +71,21 @@ function Card(props) {
             </animated.div>
             <animated.div className="back trainer-card" style={{opacity, transform: transform.to(t => `${t} rotateY(180deg)`)}}>
                 {trades.map(trade => {
-                        return (
-                            <div key={trade.trade_id} className='trade-item'>
-                                <img className='looking-pic' src={trade.sprite1} alt={trade.name1}/>
-                                <span className='trade-message'>
-                                    <h3 className='looking-for'>looking for {trade.name1}</h3>
-                                    <h3 className='willing-to'>willing to trade {trade.name2}</h3>
-                                </span>
-                                {editView && <button className='delete-trade' onClick={(e) => {
-                                    handleDelete(trade.trade_id)
-                                    e.stopPropagation()
-                                }}>remove trade</button>}
-                                <img className='willing-pic' src={trade.sprite2} alt={trade.name2}/>
-                            </div>
-                        )
-                    })}
+                    return (
+                        <div key={trade.trade_id} className='trade-item'>
+                            <img className='looking-pic' src={trade.sprite1} alt={trade.name1}/>
+                            <span className='trade-message'>
+                                <h3 className='looking-for'>looking for {trade.name1}</h3>
+                                <h3 className='willing-to'>willing to trade {trade.name2}</h3>
+                            </span>
+                            {editView && <button className='delete-trade' onClick={(e) => {
+                                handleDelete(trade.trade_id)
+                                e.stopPropagation()
+                            }}>remove trade</button>}
+                            <img className='willing-pic' src={trade.sprite2} alt={trade.name2}/>
+                        </div>
+                    )
+                })}
                 {editView && <Link to='/pokemon'>add a trade</Link>}
             </animated.div>
             <button className='undo-qr'><RiQrCodeFill /></button>

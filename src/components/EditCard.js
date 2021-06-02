@@ -4,7 +4,6 @@ import {UserContext} from '../context/UserContext'
 import {useHistory} from 'react-router-dom'
 import {RiSave2Fill, RiArrowLeftFill} from 'react-icons/ri'
 import InputMask from 'react-input-mask'
-import {createUseStyles} from 'react-jss'
 import axios from 'axios'
 
 
@@ -32,18 +31,6 @@ function EditCard() {
                 setUser(res.data)
             }).catch(err => console.log(err))
     }, [])
-
-    const useStyles = createUseStyles ({
-        currentPic: {
-            backgroundImage: "url(https://cdn2.bulbagarden.net/upload/0/00/Spr_DP_Dawn.png)",
-        },
-        
-        // allPics: {
-        //     backgroundImage: `url(${picSelect[0].profile_pic})`
-        // }
-    })
-    
-    const classes = useStyles()
 
     return (
         <div className='trainer-edit extra'>
@@ -82,7 +69,7 @@ function EditCard() {
                 />
             </span>
             <select className='edit-pic' onChange={e => setProfilePic(e.target.value)}>
-                <option className={classes.currentPic} value={user.pic}>select an option</option>
+                <option value={user.pic}>select an option</option>
                 <option style={{backgroundImage: `url('https://cdn2.bulbagarden.net/upload/0/00/Spr_DP_Dawn.png')`}} value={1} data-icon='https://cdn2.bulbagarden.net/upload/0/00/Spr_DP_Dawn.png'>1</option>
                 <option value={2}>2</option>
                 <option value={3}>3</option>
