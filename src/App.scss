@@ -64,23 +64,37 @@ button {
 	align-items: center;
 }
 
+.extra-card {
+  position: absolute;
+  top: 10vh;
+}
+
 .trainer-card {
   font-family: Pokemon-Dialogue;
   color: rgb(66, 66, 66);
   text-shadow: 1.5px 1.5px rgb(150, 150, 150);
   width: 461px;
   height: 338px;
-  position: absolute;
-  top: 10vh;
   will-change: transform, opacity;
+}
+
+.trainer-edit {
+  font-family: Pokemon-Dialogue;
+  color: rgb(66, 66, 66);
+  text-shadow: 1.5px 1.5px rgb(150, 150, 150);
+  background: url(./svg/Card-Front.png);
+  width: 461px;
+  height: 338px;
 }
 
 .front {
   background: url(./svg/Card-Front.png);
+  position: absolute;
 }
 
 .back {
   background: url(./svg/Card-Back.png);
+  position: absolute;
 }
 
 $item-flex: (

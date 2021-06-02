@@ -45,7 +45,7 @@ function EditCard() {
     const classes = useStyles()
 
     return (
-        <div className='trainer-card'>
+        <div className='trainer-edit'>
             <span className='card-name'>
                 <h3>NAME: </h3>
                 <h3>{user.username}</h3>

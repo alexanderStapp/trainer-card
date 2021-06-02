@@ -97,15 +97,37 @@ button {
           align-items: center;
 }
 
+.extra-card {
+  position: absolute;
+  top: 10vh;
+}
+
 .trainer-card {
+  font-family: Pokemon-Dialogue;
+  color: #424242;
+  text-shadow: 1.5px 1.5px #969696;
+  width: 461px;
+  height: 338px;
+  will-change: transform, opacity;
+}
+
+.trainer-edit {
   font-family: Pokemon-Dialogue;
   color: #424242;
   text-shadow: 1.5px 1.5px #969696;
   background: url(./svg/Card-Front.png);
   width: 461px;
   height: 338px;
+}
+
+.front {
+  background: url(./svg/Card-Front.png);
   position: absolute;
-  top: 10vh;
+}
+
+.back {
+  background: url(./svg/Card-Back.png);
+  position: absolute;
 }
 
 .card-name {

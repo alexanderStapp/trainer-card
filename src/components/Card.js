@@ -3,7 +3,7 @@ import {useContext, useEffect, useState} from 'react'
 import {CardContext} from '../context/CardContext'
 import {UserContext} from '../context/UserContext'
 import {RiPencilFill, RiQrCodeFill} from 'react-icons/ri'
-import {useSpring, animated} from 'react-spring'
+import {useSpring, useTrail, animated} from 'react-spring'
 
 function Card(props) {
     const [userInfo, setUserInfo] = useState(null)
@@ -15,8 +15,7 @@ function Card(props) {
     const {username} = props.match.params
     const {transform, opacity} = useSpring({
         opacity: flipped ? 1 : 0,
-        transform: `perspective(600px) rotateX(${flipped ? 180 : 0}deg)`,
-        config: { mass: 5, tension: 500, friction: 80 }
+        transform: `perspective(1000px) rotateY(${flipped ? 180 : 0}deg)`,
     })
 
     useEffect(() => {
@@ -42,7 +41,7 @@ function Card(props) {
 
     return (
         <div onClick={() => setFlip(flipped => !flipped)} className='trainer-card'>
-            <animated.div className="trainer-card back" style={{opacity: opacity.to(o => 1 - o), transform}} >
+            <animated.div className="front trainer-card" style={{opacity: opacity.to(o => 1 - o), transform}} >
                 {userInfo && (<>
                     <img className='card-pic' src={userInfo.profile_pic} alt={userInfo.username} />
                     <span className='card-name'>
@@ -61,17 +60,16 @@ function Card(props) {
                         <h3>HOME ID:</h3>
                         <h3>{userInfo.home.toUpperCase()}</h3>
                     </span>
-                    {trades.map(trade => {
+                </>)}
+            </animated.div>
+            <animated.div className="back trainer-card" style={{opacity, transform: transform.to(t => `${t} rotateY(180deg)`)}}>
+                {trades.map(trade => {
                         return (
                             <div key={trade.trade_id} className='trade-item'>
                                 <h3>looking for {trade.name1} <img src={trade.sprite1} alt={trade.name1} /> willing to trade {trade.name2} <img src={trade.sprite2} alt={trade.name2} /></h3>
                             </div>
                         )
                     })}
-                </>)}
-            </animated.div>
-            <animated.div className="trainer-card front" style={{opacity, transform: transform.to(t => `${t} rotateX(180deg)`)}}>
-                <p>hello</p>
             </animated.div>
             <button className='undo-qr'><RiQrCodeFill /></button>
             {editView && <button className='edit-save' onClick={handleEdit}><RiPencilFill /></button>}
