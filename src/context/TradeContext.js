@@ -4,12 +4,17 @@ import {createContext, useState} from 'react'
 export const TradeContext = createContext()
 
 export const TradeProvider = (props) => {
-    const [lookingFor, setLookingFor] = useState({name: 'any pokemon', id: 0})
-    const [willing, setWilling] = useState({name: 'any pokemon', id: 0})
+    const anyPokemon = {
+        id: 0,
+        name: 'any pokemon',
+        sprites: {front_default: 'https://cdn2.bulbagarden.net/upload/8/8e/Spr_3r_000.png'},
+    }
+    const [lookingFor, setLookingFor] = useState(anyPokemon)
+    const [willing, setWilling] = useState(anyPokemon)
 
     const handleLooking = (name) => {
         name === 'any pokemon'
-        ? setLookingFor({name: 'any pokemon', id: 0})
+        ? setLookingFor(anyPokemon)
         : axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
             .then(res => {
                 setLookingFor(res.data)
@@ -18,7 +23,7 @@ export const TradeProvider = (props) => {
 
     const handleWilling = (name) => {
         name === 'any pokemon'
-        ? setWilling({name: 'any pokemon', id: 0})
+        ? setWilling(anyPokemon)
         : axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
             .then(res => {
                 setWilling(res.data)
