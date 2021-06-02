@@ -33,9 +33,13 @@ export const TradeProvider = (props) => {
     const handleSubmit = (lookingFor, lookingName, lookingSprite, willing, willingName, willingSprite) => {
         axios.post('api/trade', {lookingFor, lookingName, lookingSprite, willing, willingName, willingSprite})
             .then(
-                setLookingFor({name: 'any pokemon', id: 0}),
-                setWilling({name: 'any pokemon', id: 0})
+                setLookingFor(anyPokemon),
+                setWilling(anyPokemon)
             ).catch(err => console.log(err))
+    }
+
+    const handleDelete = (tradeID) => {
+        axios.delete(`/api/trade/${tradeID}`)
     }
 
     return (
@@ -44,7 +48,8 @@ export const TradeProvider = (props) => {
             willing,
             handleLooking,
             handleWilling,
-            handleSubmit
+            handleSubmit,
+            handleDelete
         }}>
             {props.children}
         </TradeContext.Provider>

@@ -2,8 +2,10 @@ import axios from 'axios'
 import {useContext, useEffect, useState} from 'react'
 import {CardContext} from '../context/CardContext'
 import {UserContext} from '../context/UserContext'
+import {TradeContext} from '../context/TradeContext'
 import {RiPencilFill, RiQrCodeFill} from 'react-icons/ri'
 import {useSpring, useTrail, animated} from 'react-spring'
+import {Link} from 'react-router-dom'
 
 function Card(props) {
     const [userInfo, setUserInfo] = useState(null)
@@ -12,6 +14,7 @@ function Card(props) {
     const [trades, setTrades] = useState([])
     const {handleEdit} = useContext(CardContext)
     const {user} = useContext(UserContext)
+    const {handleDelete} = useContext(TradeContext)
     const {username} = props.match.params
     const {transform, opacity} = useSpring({
         opacity: flipped ? 1 : 0,
@@ -24,9 +27,9 @@ function Card(props) {
                 setUserInfo(res.data)
             }).catch(err => console.log(err))
         axios.get(`api/trade/${user.user_id}`)
-            .then(res => {
-                setTrades(res.data)
-            }).catch(err => console.log(err))
+        .then(res => {
+            setTrades(res.data)
+        }).catch(err => console.log(err))
     }, [username])
 
     useEffect(() => {
@@ -67,9 +70,11 @@ function Card(props) {
                         return (
                             <div key={trade.trade_id} className='trade-item'>
                                 <h3>looking for {trade.name1} <img src={trade.sprite1} alt={trade.name1} /> willing to trade {trade.name2} <img src={trade.sprite2} alt={trade.name2} /></h3>
+                                {editView && <button onClick={() => handleDelete(trade.trade_id)}>remove trade</button>}
                             </div>
                         )
                     })}
+                <Link to='/pokemon'>add a trade</Link>
             </animated.div>
             <button className='undo-qr'><RiQrCodeFill /></button>
             {editView && <button className='edit-save' onClick={handleEdit}><RiPencilFill /></button>}

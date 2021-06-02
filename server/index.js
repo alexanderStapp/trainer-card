@@ -50,7 +50,7 @@ massive({
 // trade
     app.get('/api/trade/:user_id', tradeCtrl.getTrades)
     app.post('/api/trade', tradeCtrl.createTrade)
-    // app.delete('/api/trade/:request_id', requestCtrl.deleteRequest)
+    app.delete('/api/trade/:trade_id', tradeCtrl.deleteTrade)
     // app.put('/api/trade/:request_id', requestCtrl.editRequest)
 
 // search

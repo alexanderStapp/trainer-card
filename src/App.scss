@@ -8,6 +8,7 @@
   src: URL('./fonts/pkmndp.ttf') format('truetype');
 }
 
+// button reset
 button {
 	background: none;
 	color: inherit;
@@ -16,6 +17,16 @@ button {
 	font: inherit;
 	cursor: pointer;
 	outline: inherit;
+}
+
+.style-button {
+	background: none;
+	color: inherit;
+	border: 1px solid lightgray;
+  border-radius: 6px;
+	padding: 10px;
+	font: inherit;
+	cursor: pointer;
 }
 
 .App {
@@ -53,7 +64,9 @@ button {
 
 .loginput {
 	border: solid 1px rgb(58, 58, 58);
-  border-radius: 10px;
+  border-radius: 6px;
+  height: 30px;
+  padding: 0 10px 0 10px;
 }
 
 .auth-buttons {
@@ -85,6 +98,8 @@ button {
   background: url(./svg/Card-Front.png);
   width: 461px;
   height: 338px;
+  position: absolute;
+  top: 5vh;
 }
 
 .front {
@@ -130,10 +145,10 @@ $edit-inputs: (
   "width": 45%,
   "back": none,
   "color": inherit,
-	"border": none,
+	"border": 1px solid rgb(109, 109, 109),
+  "border-radius": 6px,
 	"padding": 0,
 	"font": inherit,
-	"outline": none
 );
 
 .card-name {
@@ -169,13 +184,12 @@ $edit-inputs: (
 .edit-threeds > input {
   font-family: Pokemon-Dialogue;
   color: rgb(66, 66, 66);
-  text-shadow: 1.5px 1.5px rgb(150, 150, 150);
   font-weight: map-get( $edit-inputs, weight );
   width: map-get( $edit-inputs, width );
   background: map-get( $edit-inputs, back );
   color: map-get( $edit-inputs, color );
   border: map-get( $edit-inputs, border );
-  outline: map-get( $edit-inputs, outline );
+  border-radius: map-get( $edit-inputs, border-radius );
   height: map-get( $edit-inputs, height );
 }
 
@@ -202,13 +216,12 @@ $edit-inputs: (
 .edit-switch > input {
   font-family: Pokemon-Dialogue;
   color: rgb(66, 66, 66);
-  text-shadow: 1.5px 1.5px rgb(150, 150, 150);
   font-weight: map-get( $edit-inputs, weight );
-  background: map-get( $edit-inputs, width );
+  width: map-get( $edit-inputs, width );
   background: map-get( $edit-inputs, back );
   color: map-get( $edit-inputs, color );
   border: map-get( $edit-inputs, border );
-  outline: map-get( $edit-inputs, outline );
+  border-radius: map-get( $edit-inputs, border-radius );
   height: map-get( $edit-inputs, height );
 }
 
@@ -235,13 +248,12 @@ $edit-inputs: (
 .edit-home > input {
   font-family: Pokemon-Dialogue;
   color: rgb(66, 66, 66);
-  text-shadow: 1.5px 1.5px rgb(150, 150, 150);
   font-weight: map-get( $edit-inputs, weight );
-  background: map-get( $edit-inputs, width );
+  width: map-get( $edit-inputs, width );
   background: map-get( $edit-inputs, back );
   color: map-get( $edit-inputs, color );
   border: map-get( $edit-inputs, border );
-  outline: map-get( $edit-inputs, outline );
+  border-radius: map-get( $edit-inputs, border-radius );
   height: map-get( $edit-inputs, height );
 }
 
@@ -289,7 +301,7 @@ $edit-inputs: (
 }
 
 .trade-view {
-  width: 55vw;
+  width: 30vw;
 }
 
 .poke-item {
