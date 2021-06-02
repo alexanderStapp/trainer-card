@@ -37,6 +37,7 @@ function EditCard() {
         currentPic: {
             backgroundImage: "url(https://cdn2.bulbagarden.net/upload/0/00/Spr_DP_Dawn.png)",
         },
+        
         // allPics: {
         //     backgroundImage: `url(${picSelect[0].profile_pic})`
         // }
@@ -50,7 +51,7 @@ function EditCard() {
                 <h3>NAME: </h3>
                 <h3>{user.username}</h3>
             </span>
-            <span className='edit-threeds'>
+            <span className='card-threeds'>
                 <h3>3DS ID:</h3>
                 <InputMask
                     mask="9999-9999-9999"
@@ -60,7 +61,7 @@ function EditCard() {
                     onChange={e => setThreedsID(e.target.value)}
                 />
             </span>
-            <span className='edit-switch'>
+            <span className='card-switch'>
                 <h3>SWITCH ID:</h3>
                 <InputMask
                     mask="9999-9999-9999"
@@ -70,7 +71,7 @@ function EditCard() {
                     onChange={e => setSwitchID(e.target.value)}
                 />
             </span>
-            <span className='edit-home'>
+            <span className='card-home'>
                 <h3>HOME ID:</h3>
                 <InputMask
                     mask="aaaaaaaaaaaa"
@@ -82,7 +83,7 @@ function EditCard() {
             </span>
             <select className='edit-pic' onChange={e => setProfilePic(e.target.value)}>
                 <option className={classes.currentPic} value={user.pic}>select an option</option>
-                <option className={classes.currentPic} value={1}>1</option>
+                <option style={{backgroundImage: `url('https://cdn2.bulbagarden.net/upload/0/00/Spr_DP_Dawn.png')`}} value={1} data-icon='https://cdn2.bulbagarden.net/upload/0/00/Spr_DP_Dawn.png'>1</option>
                 <option value={2}>2</option>
                 <option value={3}>3</option>
             </select>

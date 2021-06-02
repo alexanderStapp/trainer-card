@@ -5,16 +5,18 @@
   src: URL('./fonts/pkmndp.ttf') format('truetype');
 }
 
-
+@mixin futura {
+  font-family: Futura,Trebuchet MS,Arial,sans-serif;
+  font-weight: bold;
+}
 
 .style-button {
-	background: none;
-	color: inherit;
 	border: 1px solid lightgray;
   border-radius: 6px;
-	padding: 10px;
+	padding: 5px 10px 8px 10px;
 	font: inherit;
 	cursor: pointer;
+  width: 80px;
 }
 
 .App {
@@ -34,8 +36,7 @@
 }
 
 .header { 
-	font-family: Futura,Trebuchet MS,Arial,sans-serif;
-  font-weight: bold;
+	@include futura;
   width: 50vw;
   height: 5vh;
   display: flex;
@@ -45,8 +46,8 @@
 }
 
 .login {
-  width: 200px;
-  height: 170px;
+  @include futura;
+  height: 200px;
   display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -84,23 +85,14 @@
 }
 
 .trainer-edit {
-  font-family: Pokemon-Dialogue;
-  color: rgb(66, 66, 66);
-  text-shadow: 1.5px 1.5px rgb(150, 150, 150);
+  @extend .trainer-card;
   background: url(./svg/Card-Front.png);
-  width: 461px;
-  height: 338px;
   position: absolute;
-  top: 5vh;
+  top: 15vh;
 }
 
 .front {
   background: url(./svg/Card-Front.png);
-  position: absolute;
-}
-
-.back {
-  background: url(./svg/trainercard_back_v2.png);
   position: absolute;
 }
 
@@ -109,144 +101,72 @@ $item-flex: (
   "justify-content": space-between,
   "align-items": center
 );
-$item-width: 52%;
-$item-margin: 5%;
   
-$name-pos: (
-  "pos": absolute,
-  "top": 14.8%
-);
+// @mixin mobile {
+//   @media (max-width: 800px) {
+//     @content;
+//   }
+// }
 
-$threeds-pos: (
-  "pos": absolute,
-  "top": 23.8%
-);
+@mixin card-item-pos($pos) {
+  position: absolute;
+  top: $pos;
+}
 
-$switch-pos: (
-  "pos": absolute,
-  "top": 37.5%
-);
+@mixin edit-inputs {
+  font-weight: bold;
+  width: 45%;
+  background: none;
+  color: inherit;
+	border: 1px solid rgb(109, 109, 109);
+  border-radius: 6px;
+	padding: 0;
+	font: inherit;
+  font-size: inherit;
+};
 
-$home-pos: (
-  "pos": absolute,
-  "top": 47%
-);
-
-$edit-inputs: (
-  "weight": bold,
-  "width": 45%,
-  "back": none,
-  "color": inherit,
-	"border": 1px solid rgb(109, 109, 109),
-  "border-radius": 6px,
-	"padding": 0,
-	"font": inherit,
-);
+@mixin card-item-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 52%;
+  margin-left: 5%;
+}
 
 .card-name {
-  position: map-get( $name-pos, pos );
-  top: map-get( $name-pos, top );
-  display: map-get( $item-flex, display );
-	justify-content: map-get( $item-flex, justify-content );
-	align-items: map-get( $item-flex, align-items );
-  width: $item-width;
-  margin-left: $item-margin;
+  @include card-item-pos(14.8%);
+  @include card-item-flex;
 }
 
 .card-threeds {
-  position: map-get( $threeds-pos, pos );
-  top: map-get( $threeds-pos, top );
-  display: map-get( $item-flex, display );
-	justify-content: map-get( $item-flex, justify-content );
-	align-items: map-get( $item-flex, align-items );
-  width: $item-width;
-  margin-left: $item-margin;
+  @include card-item-pos(23.8%);
+  @include card-item-flex;
 }
 
-.edit-threeds {
-  position: map-get( $threeds-pos, pos );
-  top: map-get( $threeds-pos, top );
-  display: map-get( $item-flex, display );
-	justify-content: map-get( $item-flex, justify-content );
-	align-items: map-get( $item-flex, align-items );
-  width: $item-width;
-  margin-left: $item-margin;
-}
-
-.edit-threeds > input {
-  font-family: Pokemon-Dialogue;
-  color: rgb(66, 66, 66);
-  font-weight: map-get( $edit-inputs, weight );
-  width: map-get( $edit-inputs, width );
-  background: map-get( $edit-inputs, back );
-  color: map-get( $edit-inputs, color );
-  border: map-get( $edit-inputs, border );
-  border-radius: map-get( $edit-inputs, border-radius );
-  height: map-get( $edit-inputs, height );
+.card-threeds > input {
+  @include edit-inputs
 }
 
 .card-switch {
-  position: map-get( $switch-pos, pos );
-  top: map-get( $switch-pos, top );
-  display: map-get( $item-flex, display );
-	justify-content: map-get( $item-flex, justify-content );
-	align-items: map-get( $item-flex, align-items );
-  width: $item-width;
-  margin-left: $item-margin;
+  @include card-item-pos(37.5%);
+  @include card-item-flex;
 }
 
-.edit-switch {
-  position: map-get( $switch-pos, pos );
-  top: map-get( $switch-pos, top );
-  display: map-get( $item-flex, display );
-	justify-content: map-get( $item-flex, justify-content );
-	align-items: map-get( $item-flex, align-items );
-  width: $item-width;
-  margin-left: $item-margin;
-}
-
-.edit-switch > input {
-  font-family: Pokemon-Dialogue;
-  color: rgb(66, 66, 66);
-  font-weight: map-get( $edit-inputs, weight );
-  width: map-get( $edit-inputs, width );
-  background: map-get( $edit-inputs, back );
-  color: map-get( $edit-inputs, color );
-  border: map-get( $edit-inputs, border );
-  border-radius: map-get( $edit-inputs, border-radius );
-  height: map-get( $edit-inputs, height );
+.card-switch > input {
+  @include edit-inputs
 }
 
 .card-home {
-  position: map-get( $home-pos, pos );
-  top: map-get( $home-pos, top );
-  display: map-get( $item-flex, display );
-	justify-content: map-get( $item-flex, justify-content );
-	align-items: map-get( $item-flex, align-items );
-  width: $item-width;
-  margin-left: $item-margin;
+  @include card-item-pos(47%);
+  @include card-item-flex;
 }
 
-.edit-home {
-  position: map-get( $home-pos, pos );
-  top: map-get( $home-pos, top );
-  display: map-get( $item-flex, display );
-	justify-content: map-get( $item-flex, justify-content );
-	align-items: map-get( $item-flex, align-items );
-  width: $item-width;
-  margin-left: $item-margin;
+.card-home > input {
+  @include edit-inputs
 }
 
 .edit-home > input {
-  font-family: Pokemon-Dialogue;
-  color: rgb(66, 66, 66);
-  font-weight: map-get( $edit-inputs, weight );
-  width: map-get( $edit-inputs, width );
-  background: map-get( $edit-inputs, back );
-  color: map-get( $edit-inputs, color );
-  border: map-get( $edit-inputs, border );
-  border-radius: map-get( $edit-inputs, border-radius );
-  height: map-get( $edit-inputs, height );
+  @include edit-inputs
 }
 
 .card-pic {
@@ -262,8 +182,7 @@ $edit-inputs: (
   right: 10%;
   width: 20%;
   height: 27.5%;
-  background: map-get( $edit-inputs, back );
-  color: map-get( $edit-inputs, color );
+  background: none;
 }
 
 .edit-save {
@@ -276,6 +195,42 @@ $edit-inputs: (
   position: absolute;
   right: 34px;
   bottom: -24px;
+}
+
+.back {
+  background: url(./svg/trainercard_back_v2.png);
+  background-repeat: no-repeat;
+  position: absolute;
+  display: flex;
+	flex-direction: column;
+	align-items: center;
+  padding-top: 4%;
+}
+
+.trade-item {
+  position: relative;
+  margin-bottom: 2.5%;
+  margin-left: .9%;
+  width: 93%;
+  display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+  img {
+    width: 75px;
+  }
+}
+
+.trade-message {
+  height: 62px;
+  display: flex;
+  flex-direction: column;
+	justify-content: space-around;
+}
+
+.delete-trade {
+  position: absolute;
+  bottom: -5px;
+  right: 22%;
 }
 
 .buddy-list {
@@ -292,7 +247,7 @@ $edit-inputs: (
   width: 100%;
 }
 
-.trade-view {
+.poke-view {
   width: 30vw;
 }
 
@@ -307,4 +262,14 @@ $edit-inputs: (
   flex-direction: row-reverse;
 	justify-content: space-between;
 	align-items: center;
+  button {
+    border: 1px solid lightgray;
+    border-radius: 6px;
+    margin-top: 10px;
+    padding: 5px 10px 8px 10px;
+    font: inherit;
+    cursor: pointer;
+    width: 120px;
+  }
 }
+

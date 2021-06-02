@@ -19,7 +19,7 @@ const Pokemon = () => {
     }, [url])
 
     return (
-        <div className='trade-view'>
+        <div className='poke-view'>
             <h3>looking for {lookingFor.name}</h3>
             <h3>willing to trade {willing.name}</h3>
             <button onClick={() => handleSubmit(lookingFor.id, lookingFor.name, lookingFor.sprites.front_default, willing.id, willing.name, willing.sprites.front_default)}>submit</button>

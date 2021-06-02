@@ -73,11 +73,16 @@ function Card(props) {
                 {trades.map(trade => {
                         return (
                             <div key={trade.trade_id} className='trade-item'>
-                                <h3>looking for {trade.name1} <img src={trade.sprite1} alt={trade.name1} /> willing to trade {trade.name2} <img src={trade.sprite2} alt={trade.name2} /></h3>
-                                {editView && <button onClick={(e) => {
+                                <img className='looking-pic' src={trade.sprite1} alt={trade.name1}/>
+                                <span className='trade-message'>
+                                    <h3 className='looking-for'>looking for {trade.name1}</h3>
+                                    <h3 className='willing-to'>willing to trade {trade.name2}</h3>
+                                </span>
+                                {editView && <button className='delete-trade' onClick={(e) => {
                                     handleDelete(trade.trade_id)
                                     e.stopPropagation()
                                 }}>remove trade</button>}
+                                <img className='willing-pic' src={trade.sprite2} alt={trade.name2}/>
                             </div>
                         )
                     })}
