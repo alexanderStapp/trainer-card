@@ -23,6 +23,12 @@ button {
 	outline: inherit;
 }
 
+// link reset
+a {
+  color: black;
+  text-decoration: none; /* no underline */
+}
+
 .style-button {
 	background: none;
 	color: inherit;
@@ -49,7 +55,9 @@ button {
   right: 2%;
 }
 
-.header {
+.header { 
+	font-family: Futura,Trebuchet MS,Arial,sans-serif;
+  font-weight: bold;
   width: 50vw;
   height: 5vh;
   display: flex;
@@ -114,7 +122,7 @@ button {
 }
 
 .back {
-  background: url(./svg/Card-Back.png);
+  background: url(./svg/trainercard_back_v2.png);
   position: absolute;
 }
 

@@ -8,10 +8,10 @@ const Header = () => {
     return user ? (
         <header className='header'>
                 <h3>{user.username}</h3>
-                <Link to='/dash'>Dashboard</Link>
-                <Link to={`/${user.username}`}>Card</Link>
-                <Link to='/search'>Search</Link>
-                <Link to='/' onClick={handleLogout}>Logout</Link>
+                <Link to='/dash'>DASHBOARD</Link>
+                <Link to={`/${user.username}`}>CARD</Link>
+                <Link to='/search'>SEARCH</Link>
+                <Link to='/' onClick={handleLogout}>LOGOUT</Link>
         </header>
     ) : (
         <header className='header'>
