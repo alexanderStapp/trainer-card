@@ -1,4 +1,4 @@
-import './App.css';
+import './SCSS/App.css';
 import routes from './routes'
 import Header from './components/Header'
 import Audio from './components/Audio'

@@ -1,33 +1,11 @@
-* {
-  margin: 0;
-  padding: 0;
-}
+@import './resets';
 
 @font-face {
   font-family: 'Pokemon-Dialogue';
   src: URL('./fonts/pkmndp.ttf') format('truetype');
 }
 
-html, body, body > div {
-  height: 100%;
-}
 
-// button reset
-button {
-	background: none;
-	color: inherit;
-	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
-}
-
-// link reset
-a {
-  color: black;
-  text-decoration: none; /* no underline */
-}
 
 .style-button {
 	background: none;

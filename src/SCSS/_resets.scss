@@ -1,0 +1,27 @@
+    //main reset
+* {
+    margin: 0;
+    padding: 0;
+}
+
+    // body reset
+html, body, body > div {
+    height: 100%;
+}
+
+    // link reset
+a {
+    color: black;
+    text-decoration: none;
+}
+
+  // button reset
+button {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
