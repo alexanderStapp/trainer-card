@@ -11,10 +11,9 @@ function Card(props) {
     const [userInfo, setUserInfo] = useState(null)
     const [editView, setEditView] = useState(false)
     const [flipped, setFlip] = useState(false)
-    const [trades, setTrades] = useState([])
     const {handleEdit} = useContext(CardContext)
     const {user} = useContext(UserContext)
-    const {handleDelete} = useContext(TradeContext)
+    const {trades, setTrades, handleDelete} = useContext(TradeContext)
     const {username} = props.match.params
     const {transform, opacity} = useSpring({
         opacity: flipped ? 1 : 0,
@@ -26,11 +25,16 @@ function Card(props) {
             .then(res => {
                 setUserInfo(res.data)
             }).catch(err => console.log(err))
-        axios.get(`api/trade/${user.user_id}`)
-        .then(res => {
-            setTrades(res.data)
-        }).catch(err => console.log(err))
     }, [username])
+
+    useEffect(() => {
+        if(userInfo) {
+            axios.get(`api/trade/${userInfo.user_id}`)
+            .then(res => {
+                setTrades(res.data)
+            }).catch(err => console.log(err))
+        }
+    }, [userInfo])
 
     useEffect(() => {
         if(user) {
@@ -70,11 +74,14 @@ function Card(props) {
                         return (
                             <div key={trade.trade_id} className='trade-item'>
                                 <h3>looking for {trade.name1} <img src={trade.sprite1} alt={trade.name1} /> willing to trade {trade.name2} <img src={trade.sprite2} alt={trade.name2} /></h3>
-                                {editView && <button onClick={() => handleDelete(trade.trade_id)}>remove trade</button>}
+                                {editView && <button onClick={(e) => {
+                                    handleDelete(trade.trade_id)
+                                    e.stopPropagation()
+                                }}>remove trade</button>}
                             </div>
                         )
                     })}
-                <Link to='/pokemon'>add a trade</Link>
+                {editView && <Link to='/pokemon'>add a trade</Link>}
             </animated.div>
             <button className='undo-qr'><RiQrCodeFill /></button>
             {editView && <button className='edit-save' onClick={handleEdit}><RiPencilFill /></button>}
