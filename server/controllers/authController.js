@@ -13,6 +13,7 @@ module.exports = {
         const [user] = await db.auth.register_user(username, hash)
         delete user.password
         req.session.user = user
+        await db.trades.create_trade(user.user_id, 0, 'any pokemon', 'https://cdn2.bulbagarden.net/upload/8/8e/Spr_3r_000.png', 0, 'any pokemon', 'https://cdn2.bulbagarden.net/upload/8/8e/Spr_3r_000.png')
         return res.status(200).send(req.session.user)
     },
     login: async (req, res) => {

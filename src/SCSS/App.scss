@@ -233,12 +233,16 @@ $item-flex: (
   right: 22%;
 }
 
-.buddy-list {
-  display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	align-items: center;
+.buddies-view {
+  width: 60vw;
 }
+
+// .buddy-list {
+//   display: flex;
+// 	flex-direction: column;
+// 	justify-content: space-between;
+// 	align-items: center;
+// }
 
 .buddy-item {
   display: flex;
