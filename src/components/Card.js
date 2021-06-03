@@ -68,8 +68,6 @@ function Card(props) {
                         <h3>{userInfo.home.toUpperCase()}</h3>
                     </span>
                 </>)}
-                <button className='undo-qr'><RiQrCodeFill /></button>
-                {editView && <button className='edit-save' onClick={handleEdit}><RiPencilFill /></button>}
             </animated.div>
             <animated.div className="back trainer-card" style={{opacity, transform: transform.to(t => `${t} rotateY(180deg)`)}}>
                 {trades.map(trade => {
@@ -90,7 +88,8 @@ function Card(props) {
                 })}
                 {editView && <Link to='/pokemon'>add a trade</Link>}
             </animated.div>
-
+            <button className='undo-qr'><RiQrCodeFill /></button>
+            {editView && <button className='edit-save' onClick={handleEdit}><RiPencilFill /></button>}
         </div>
     )
 }
