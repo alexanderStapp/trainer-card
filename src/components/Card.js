@@ -30,9 +30,9 @@ function Card(props) {
     useEffect(() => {
         if(userInfo) {
             axios.get(`api/trade/${userInfo.user_id}`)
-            .then(res => {
-                setTrades(res.data)
-            }).catch(err => console.log(err))
+                .then(res => {
+                    setTrades(res.data)
+                }).catch(err => console.log(err))
         }
     }, [userInfo])
 

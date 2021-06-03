@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 
 function Dash() {
     const [buddies, setBuddies] = useState([])
+    const [budTrades, setBudTrades] = useState([])
     
     useEffect(() => {
         axios.get('/api/dash')
@@ -12,6 +13,19 @@ function Dash() {
                 console.log(res.data)
             }).catch(err => console.log(err))
     }, [])
+
+    useEffect(() => {
+        if(buddies) {
+            buddies.forEach(bud => {
+                axios.get(`api/trade/${bud.user_buddy}`)
+                    .then(res => {
+                        setBudTrades(current => [...current, res.data])
+                    }).catch(err => console.log(err))
+            })
+        }
+    }, [buddies])
+
+    console.log(budTrades)
 
     return buddies.length === 0 ? (
         <div>
@@ -24,15 +38,18 @@ function Dash() {
             <div className='buddy-list'>
                 {buddies.map(buddy => {
                     return (
-                        <span className='buddy-item' key={buddy.trade_id}>
+                        <span className='buddy-item' key={buddy.user_buddy}>
                             <span className='buddy-profile'>
                                 <img src={buddy.chibi} alt={buddy.username} key={buddy.pic} />
                                 <Link to={`/${buddy.username}`} key={buddy.username}>{buddy.username}</Link>
                             </span>
-                            <span className='buddy-trade'>
-                                <p>looking for {buddy.name1}</p>
-                                <p>willing to trade {buddy.name2}</p>
-                            </span>
+                            {budTrades.filter(trade => trade.user_id === buddy.user_buddy).map(trade => {
+                                return (
+                                    <div className='buddy-trade' key={trade.trade_id}>
+                                        <p>{trade.name1}</p>
+                                    </div>
+                                )
+                            })}
                         </span>
                     )
                 })}
