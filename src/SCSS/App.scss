@@ -234,21 +234,19 @@ $item-flex: (
 }
 
 .buddies-view {
-  width: 60vw;
+  width: 30vw;
 }
-
-// .buddy-list {
-//   display: flex;
-// 	flex-direction: column;
-// 	justify-content: space-between;
-// 	align-items: center;
-// }
 
 .buddy-item {
   display: flex;
 	justify-content: space-between;
 	align-items: center;
   width: 100%;
+}
+
+.buddy-profile {
+	display: flex;
+	align-items: flex-start;
 }
 
 .poke-view {
