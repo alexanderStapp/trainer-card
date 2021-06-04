@@ -227,10 +227,23 @@ $item-flex: (
 	justify-content: space-around;
 }
 
+.add-trade {
+  position: absolute;
+  bottom: 0;
+}
+
 .delete-trade {
   position: absolute;
   bottom: -5px;
   right: 22%;
+}
+
+.trade-extra {
+  position: absolute;
+  top: 59%;
+  overflow: auto;
+  height: 30%;
+  width: 80%;
 }
 
 .buddies-view {

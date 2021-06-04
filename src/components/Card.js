@@ -3,6 +3,7 @@ import {useContext, useEffect, useState} from 'react'
 import {CardContext} from '../context/CardContext'
 import {UserContext} from '../context/UserContext'
 import {TradeContext} from '../context/TradeContext'
+import ExtraTrades from './ExtraTrades'
 import {RiPencilFill, RiQrCodeFill} from 'react-icons/ri'
 import {useSpring, useTrail, animated} from 'react-spring'
 import {Link} from 'react-router-dom'
@@ -13,7 +14,7 @@ function Card(props) {
     const [flipped, setFlip] = useState(false)
     const {handleEdit} = useContext(CardContext)
     const {user} = useContext(UserContext)
-    const {tradesMain, setTradesMain, tradesExtra, setTradesExtra, handleDelete} = useContext(TradeContext)
+    const {initTrades, setInitTrades, tradesMain, setTradesMain, tradesExtra, setTradesExtra, handleDelete} = useContext(TradeContext)
     const {username} = props.match.params
     const {transform, opacity} = useSpring({
         opacity: flipped ? 1 : 0,
@@ -31,15 +32,21 @@ function Card(props) {
         if(userInfo) {
             axios.get(`api/trade/${userInfo.user_id}`)
                 .then(res => {
-                    if(res.data.length > 2) {
-                        setTradesMain(res.data.slice(2, res.data.length))
-                        setTradesExtra(res.data.splice(0, 2))
-                    } else {
-                        setTradesMain(res.data)
-                    }
+                    setInitTrades(res.data)
                 }).catch(err => console.log(err))
         }
     }, [userInfo])
+
+    useEffect(() => {
+        if(initTrades) {
+            if(initTrades.length > 2) {
+                setTradesMain(initTrades.slice(2, initTrades.length))
+                setTradesExtra(initTrades.splice(0, 2))
+            } else {
+                setTradesMain(initTrades)
+            }
+        }
+    }, [initTrades])
 
     useEffect(() => {
         if(user) {
@@ -91,23 +98,8 @@ function Card(props) {
                         </div>
                     )
                 })}
-                {tradesExtra.map(trade => {
-                    return (
-                        <div key={trade.trade_id} className='trade-item-extra'>
-                            <img className='looking-pic' src={trade.sprite1} alt={trade.name1}/>
-                            <span className='trade-message'>
-                                <h3 className='looking-for'>looking for {trade.name1}</h3>
-                                <h3 className='willing-to'>willing to trade {trade.name2}</h3>
-                            </span>
-                            {editView && <button className='delete-trade' onClick={(e) => {
-                                handleDelete(trade.trade_id)
-                                e.stopPropagation()
-                            }}>remove trade</button>}
-                            <img className='willing-pic' src={trade.sprite2} alt={trade.name2}/>
-                        </div>
-                    )
-                })}
-                {editView && <Link to='/pokemon'>add a trade</Link>}
+                <ExtraTrades editView={editView}/>
+                {editView && <Link to='/pokemon' className='add-trade'>add a trade</Link>}
             </animated.div>
             <button className='undo-qr'><RiQrCodeFill /></button>
             {editView && <button className='edit-save' onClick={handleEdit}><RiPencilFill /></button>}

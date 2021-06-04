@@ -11,6 +11,7 @@ export const TradeProvider = (props) => {
     }
     const [lookingFor, setLookingFor] = useState(anyPokemon)
     const [willing, setWilling] = useState(anyPokemon)
+    const [initTrades, setInitTrades] = useState([])
     const [tradesMain, setTradesMain] = useState([])
     const [tradesExtra, setTradesExtra] = useState([])
 
@@ -51,6 +52,8 @@ export const TradeProvider = (props) => {
         <TradeContext.Provider value={{
             lookingFor,
             willing,
+            initTrades,
+            setInitTrades,
             tradesMain,
             setTradesMain,
             tradesExtra,
