@@ -8,7 +8,6 @@ function TradesList(props) {
         axios.get(`api/trade/${props.buddy_id}`)
             .then(res => {
                 setBudTrades(res.data)
-                console.log(res.data)
             }).catch(err => console.log(err))
     }, [props.buddy])
 

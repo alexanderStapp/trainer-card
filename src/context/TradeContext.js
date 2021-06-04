@@ -11,7 +11,8 @@ export const TradeProvider = (props) => {
     }
     const [lookingFor, setLookingFor] = useState(anyPokemon)
     const [willing, setWilling] = useState(anyPokemon)
-    const [trades, setTrades] = useState([])
+    const [tradesMain, setTradesMain] = useState([])
+    const [tradesExtra, setTradesExtra] = useState([])
 
     const handleLooking = (name) => {
         name === 'any pokemon'
@@ -42,7 +43,7 @@ export const TradeProvider = (props) => {
     const handleDelete = (tradeID) => {
         axios.delete(`/api/trade/${tradeID}`)
             .then(res => {
-                setTrades(res.data)
+                setTradesMain(res.data)
             }).catch(err => console.log(err))
     }
 
@@ -50,8 +51,10 @@ export const TradeProvider = (props) => {
         <TradeContext.Provider value={{
             lookingFor,
             willing,
-            trades,
-            setTrades,
+            tradesMain,
+            setTradesMain,
+            tradesExtra,
+            setTradesExtra,
             handleLooking,
             handleWilling,
             handleSubmit,

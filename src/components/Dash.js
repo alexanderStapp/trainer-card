@@ -10,7 +10,6 @@ function Dash() {
         axios.get('/api/dash')
             .then(res => {
                 setBuddies(res.data)
-                console.log(res.data)
             }).catch(err => console.log(err))
     }, [])
 

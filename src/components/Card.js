@@ -13,11 +13,11 @@ function Card(props) {
     const [flipped, setFlip] = useState(false)
     const {handleEdit} = useContext(CardContext)
     const {user} = useContext(UserContext)
-    const {trades, setTrades, handleDelete} = useContext(TradeContext)
+    const {tradesMain, setTradesMain, tradesExtra, setTradesExtra, handleDelete} = useContext(TradeContext)
     const {username} = props.match.params
     const {transform, opacity} = useSpring({
         opacity: flipped ? 1 : 0,
-        transform: `perspective(1000px) rotateY(${flipped ? 180 : 0}deg)`,
+        transform: `perspective(2000px) rotateY(${flipped ? 180 : 0}deg)`,
     })
 
     useEffect(() => {
@@ -31,7 +31,12 @@ function Card(props) {
         if(userInfo) {
             axios.get(`api/trade/${userInfo.user_id}`)
                 .then(res => {
-                    setTrades(res.data)
+                    if(res.data.length > 2) {
+                        setTradesMain(res.data.slice(2, res.data.length))
+                        setTradesExtra(res.data.splice(0, 2))
+                    } else {
+                        setTradesMain(res.data)
+                    }
                 }).catch(err => console.log(err))
         }
     }, [userInfo])
@@ -70,9 +75,25 @@ function Card(props) {
                 </>)}
             </animated.div>
             <animated.div className="back trainer-card" style={{opacity, transform: transform.to(t => `${t} rotateY(180deg)`)}}>
-                {trades.map(trade => {
+                {tradesMain.map(trade => {
                     return (
-                        <div key={trade.trade_id} className='trade-item'>
+                        <div key={trade.trade_id} className='trade-item-main'>
+                            <img className='looking-pic' src={trade.sprite1} alt={trade.name1}/>
+                            <span className='trade-message'>
+                                <h3 className='looking-for'>looking for {trade.name1}</h3>
+                                <h3 className='willing-to'>willing to trade {trade.name2}</h3>
+                            </span>
+                            {editView && <button className='delete-trade' onClick={(e) => {
+                                handleDelete(trade.trade_id)
+                                e.stopPropagation()
+                            }}>remove trade</button>}
+                            <img className='willing-pic' src={trade.sprite2} alt={trade.name2}/>
+                        </div>
+                    )
+                })}
+                {tradesExtra.map(trade => {
+                    return (
+                        <div key={trade.trade_id} className='trade-item-extra'>
                             <img className='looking-pic' src={trade.sprite1} alt={trade.name1}/>
                             <span className='trade-message'>
                                 <h3 className='looking-for'>looking for {trade.name1}</h3>
