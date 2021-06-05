@@ -26,6 +26,13 @@ function Card(props) {
             .then(res => {
                 setUserInfo(res.data)
             }).catch(err => console.log(err))
+        if(user) {
+            if(user.username === username) {
+                setEditView(true)
+            }
+        } else {
+            setEditView(false)
+        }
     }, [username])
 
     useEffect(() => {
@@ -38,25 +45,20 @@ function Card(props) {
     }, [userInfo])
 
     useEffect(() => {
+        console.log(initTrades)
         if(initTrades) {
             if(initTrades.length > 2) {
-                setTradesMain(initTrades.slice(2, initTrades.length))
-                setTradesExtra(initTrades.splice(0, 2))
+                setTradesMain(initTrades.slice(0, 2))
+                setTradesExtra(initTrades.slice(2))
             } else {
                 setTradesMain(initTrades)
+                setTradesExtra([])
             }
         }
     }, [initTrades])
 
-    useEffect(() => {
-        if(user) {
-            if(user.username === username) {
-                setEditView(true)
-            }
-        } else {
-            setEditView(false)
-        }
-    }, [username])
+    console.log(tradesMain)
+    console.log(tradesExtra)
 
     return (
         <div onClick={() => setFlip(flipped => !flipped)} className='trainer-card extra-card'>
