@@ -45,7 +45,6 @@ export const TradeProvider = (props) => {
         axios.delete(`/api/trade/${tradeID}`)
             .then(res => {
                 setInitTrades(res.data)
-                console.log(res.data)
             }).catch(err => console.log(err))
     }
 

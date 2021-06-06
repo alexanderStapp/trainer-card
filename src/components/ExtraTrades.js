@@ -3,7 +3,6 @@ import {TradeContext} from '../context/TradeContext'
 
 function ExtraTrades(props) {
     const {tradesExtra, setTradesExtra, handleDelete} = useContext(TradeContext)
-    console.log(tradesExtra)
     return (
         <div className='trade-extra'>
             {tradesExtra.map(trade => {

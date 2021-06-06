@@ -45,7 +45,6 @@ function Card(props) {
     }, [userInfo])
 
     useEffect(() => {
-        console.log(initTrades)
         if(initTrades) {
             if(initTrades.length > 2) {
                 setTradesMain(initTrades.slice(0, 2))
@@ -56,9 +55,6 @@ function Card(props) {
             }
         }
     }, [initTrades])
-
-    console.log(tradesMain)
-    console.log(tradesExtra)
 
     return (
         <div onClick={() => setFlip(flipped => !flipped)} className='trainer-card extra-card'>

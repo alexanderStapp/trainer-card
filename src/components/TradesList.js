@@ -13,6 +13,7 @@ function TradesList(props) {
 
     return (
         <div>
+            <p>TRADES</p>
             {budTrades.map(e => {
                 return(
                     <div className='bud-trade-item' key={e.trade_id}>
