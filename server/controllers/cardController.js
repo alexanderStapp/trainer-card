@@ -3,7 +3,7 @@ module.exports = {
         const db = req.app.get('db')
         const {user} = req.session
         const {threedsID, switchID, homeID, profile_pic} = req.body
-        const [updateCard] = await db.card.edit_card(user.user_id, threedsID, switchID, homeID, profile_pic)
+        const [updateCard] = await db.card.edit_card(user.user_id, threedsID === '' ? user.threeds : threedsID, switchID || user.switch, homeID || user.home, profile_pic)
         delete updateCard.password
         return res.status(200).send(updateCard)
     },

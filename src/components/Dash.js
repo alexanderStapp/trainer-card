@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 import TradesList from './TradesList'
 
 function Dash() {
-    const {buddies, setBuddies} = useContext(BuddyContext)
+    const {buddies, setBuddies, removeBuddy} = useContext(BuddyContext)
     
     useEffect(() => {
         axios.get('/api/dash')
@@ -28,6 +28,7 @@ function Dash() {
                         <span className='buddy-profile'>
                             <img src={buddy.chibi} alt={buddy.username} key={buddy.pic} />
                             <Link to={`/${buddy.username}`} key={buddy.username}>{buddy.username}</Link>
+                            <button onClick={() => removeBuddy(buddy.buddy_id)}>remove buddy</button>
                         </span>
                         <TradesList buddy_id={buddy.user_buddy} />
                     </span>

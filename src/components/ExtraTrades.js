@@ -13,10 +13,10 @@ function ExtraTrades(props) {
                             <h3 className='looking-for'>looking for {trade.name1}</h3>
                             <h3 className='willing-to'>willing to trade {trade.name2}</h3>
                         </span>
-                        {props.editView && <button className='delete-trade-extra' onClick={(e) => {
-                            handleDelete(trade.trade_id)
-                            e.stopPropagation()
-                        }}>remove trade</button>}
+                            {props.editView && <button className='delete-trade' onClick={(e) => {
+                                handleDelete(trade.trade_id)
+                                e.stopPropagation()
+                            }}>remove trade</button>}
                         <img className='willing-pic' src={trade.sprite2} alt={trade.name2}/>
                     </div>
                 )

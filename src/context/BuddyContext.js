@@ -10,12 +10,19 @@ export const BuddyProvider = (props) => {
     const addBuddy = (buddy) => {
         axios.post(`/api/dash/${buddy}`)
     }
+    const removeBuddy = (buddy) => {
+        axios.delete(`/api/dash/${buddy}`)
+            .then(res => {
+                setBuddies(res.data)
+            }).catch(err => console.log(err))
+    }
 
     return (
         <BuddyContext.Provider value={{
             buddies,
             setBuddies,
-            addBuddy
+            addBuddy,
+            removeBuddy
         }}>
             {props.children}
         </BuddyContext.Provider>
