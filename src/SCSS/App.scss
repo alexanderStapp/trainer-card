@@ -12,7 +12,7 @@
 }
 
 @mixin button {
-  border: 1px solid lightgray;
+  border: 1px solid rgb(107, 107, 107);
   border-radius: 6px;
   padding: 5px 10px 8px 11px;
   font: inherit;
@@ -20,7 +20,7 @@
 }
 
 .style-button {
-	border: 1px solid lightgray;
+	border: 1px solid rgb(107, 107, 107);
   border-radius: 6px;
 	padding: 5px 10px 8px 10px;
 	font: inherit;
@@ -244,14 +244,48 @@ $item-flex: (
   width: 80%;
 }
 
-.add-buddy, .search-button {
+.search-form {
+  width: 280px;
+  display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.search-list {
+  display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.search-item {
+  background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+  margin-top: 16px;
+  border: 1px solid rgb(107, 107, 107);
+  border-radius: 6px;
+  padding-left: 10px;
+  width: 100%;
+  display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.search-button {
   @include button;
+
+}
+
+.add-buddy {
+  @include button;
+  border: none;
+  border-left: 1px solid rgb(107, 107, 107);
 }
 
 .added {
   @include button;
   font-style: italic;
   color: gray;
+  border: none;
+  border-left: 1px solid rgb(107, 107, 107);
 }
 
 .buddies-view {

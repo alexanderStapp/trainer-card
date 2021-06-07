@@ -20,17 +20,26 @@ function Search() {
 
     return (
         <div>
-            <input className='input' value={search} onChange={e => setSearch(e.target.value)}/>
-            <button className='search-button' onClick={() => handleSearch(search)}>search</button>
+            <span className='search-form'>
+                <input className='input' value={search} onChange={e => setSearch(e.target.value)}/>
+                <button className='search-button' onClick={() => handleSearch(search)}>search</button>
+            </span>
             <br />
-            {users.map(search => {
-                return (
-                    <span className='search-item' key={search.user_id}>
-                        <Link to={`/${search.username}`} key={search.username}>{search.username}</Link>
-                        {user.username === search.username ? <Link to={`/${user.username}`} className='add-buddy'>go to card</Link> : !buddies.some(e => e.user_buddy === search.user_id) ? <button className='add-buddy' onClick={() => addBuddy(search.user_id)}>add buddy</button> : <button className='added'>added</button>}
-                    </span>
-                )
-            })}
+            <div className='search-list'>
+                {users.map(search => {
+                    return (
+                        <span className='search-item' key={search.user_id}>
+                            <Link to={`/${search.username}`} key={search.username}>{search.username}</Link>
+                            {user.username === search.username
+                                ? <Link to={`/${user.username}`} className='add-buddy'>go to card</Link>
+                                : !buddies.some(e => e.user_buddy === search.user_id)
+                                ? <button className='add-buddy' onClick={() => addBuddy(search.user_id)}>add buddy</button>
+                                : <button className='added'>added</button>
+                            }
+                        </span>
+                    )
+                })}
+            </div>
         </div>
     )
 }
