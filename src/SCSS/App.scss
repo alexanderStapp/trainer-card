@@ -11,6 +11,14 @@
   font-weight: bold;
 }
 
+@mixin button {
+  border: 1px solid lightgray;
+  border-radius: 6px;
+  padding: 5px 10px 8px 11px;
+  font: inherit;
+  cursor: pointer;
+}
+
 .style-button {
 	border: 1px solid lightgray;
   border-radius: 6px;
@@ -38,8 +46,8 @@
 
 .header { 
 	@include futura;
-  width: 50vw;
-  height: 5vh;
+  width: 600px;
+  height: 60px;
   display: flex;
   justify-content: space-around;
 	align-items: center;
@@ -56,7 +64,7 @@
   margin: 15vh;
 }
 
-.loginput {
+.input {
 	border: solid 1px rgb(58, 58, 58);
   border-radius: 6px;
   height: 30px;
@@ -79,7 +87,7 @@
 .trainer-card {
   font-family: Pokemon-Dialogue;
   color: rgb(66, 66, 66);
-  text-shadow: 1.5px 1.5px rgb(150, 150, 150);
+  text-shadow: 1.5px 1.5px rgb(148, 148, 148);
   width: 461px;
   height: 338px;
   will-change: transform, opacity;
@@ -144,17 +152,9 @@ $item-flex: (
   @include card-item-flex;
 }
 
-.card-threeds > input {
-  @include edit-inputs
-}
-
 .card-switch {
   @include card-item-pos(37.5%);
   @include card-item-flex;
-}
-
-.card-switch > input {
-  @include edit-inputs
 }
 
 .card-home {
@@ -162,13 +162,10 @@ $item-flex: (
   @include card-item-flex;
 }
 
-.card-home > input {
+.card-home > input, .card-switch > input, .edit-home > input, .card-threeds > input {
   @include edit-inputs
 }
 
-.edit-home > input {
-  @include edit-inputs
-}
 
 .card-pic {
   position: absolute;
@@ -247,11 +244,21 @@ $item-flex: (
   width: 80%;
 }
 
+.add-buddy, .search-button {
+  @include button;
+}
+
+.added {
+  @include button;
+  font-style: italic;
+  color: gray;
+}
+
 .buddies-view {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 400px;
+  width: 450px;
 }
 
 .buddy-item {
@@ -259,8 +266,9 @@ $item-flex: (
   width: 100%;
   background: linear-gradient(175deg, rgba(255,255,255,1) 30%, rgba(159,241,255,1) 100%);
   margin: 10px 0 10px 0;
-  padding: 10px;
+  border-left: 5px solid rgb(96, 153, 175);
   border-radius: 6px;
+  padding: 10px;
   box-shadow: 0 0 10px lightgrey;
   display: flex;
 	justify-content: space-between;
@@ -269,16 +277,74 @@ $item-flex: (
 
 .buddy-profile {
 	display: flex;
+  align-items: center;
+  img {
+    background: linear-gradient(163deg, rgba(196,232,237,1) 0%, rgba(232,232,232,1) 100%);
+    margin-right: 5px;
+    border-radius: 6px;
+    padding-bottom: 5px;
+  }
+}
+
+.bud-trade, .bud-trade-item {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
 }
 
 .poke-view {
-  width: 30vw;
+  display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.trade-launch {
+  width: 460px;
+  display: flex;
+  justify-content: space-between;
+	align-items: center;
+  button {
+    height: 36px;
+    border: 1px solid lightgray;
+    border-radius: 6px;
+    margin-top: 10px;
+    padding: 5px 10px 8px 11px;
+    font: inherit;
+    cursor: pointer;
+    width: 80px;
+  }
+}
+
+.poke-launch {
+  height: 146px;
+  width: 130px;
+  background: linear-gradient(175deg, rgba(255,255,255,1) 30%, rgba(159,241,255,1) 100%);
+  margin: 10px 0 10px 0;
+  border-bottom: 5px solid rgb(96, 153, 175);
+  border-radius: 6px;
+  padding: 10px;
+  box-shadow: 0 0 10px lightgrey;
+}
+
+.poke-list {
+  width: 400px;
 }
 
 .poke-item {
+  @include futura;
   display: flex;
 	justify-content: space-between;
 	align-items: center;
+  button {
+    border: 1px solid lightgray;
+    border-radius: 6px;
+    margin-top: 10px;
+    padding: 5px 10px 8px 10px;
+    background: linear-gradient(175deg, rgba(255,255,255,1) 30%, rgba(159,241,255,1) 100%);
+    font: inherit;
+    cursor: pointer;
+  }
 }
 
 .prev-next {

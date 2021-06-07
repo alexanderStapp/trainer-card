@@ -1,12 +1,14 @@
 import axios from 'axios'
 import {useContext, useState} from 'react'
 import {BuddyContext} from '../context/BuddyContext'
+import {UserContext} from '../context/UserContext'
 import {Link} from 'react-router-dom'
 
 function Search() {
     const [search, setSearch] = useState('')
     const [users, setUsers] = useState([])
-    const {addBuddy} = useContext(BuddyContext)
+    const {buddies, addBuddy} = useContext(BuddyContext)
+    const {user} = useContext(UserContext)
 
     const handleSearch = (search) => {
         axios.get(`/api/search/${search}`)
@@ -18,14 +20,14 @@ function Search() {
 
     return (
         <div>
-            <input value={search} onChange={e => setSearch(e.target.value)}/>
-            <button onClick={() => handleSearch(search)}>search</button>
+            <input className='input' value={search} onChange={e => setSearch(e.target.value)}/>
+            <button className='search-button' onClick={() => handleSearch(search)}>search</button>
             <br />
-            {users.map(user => {
+            {users.map(search => {
                 return (
-                    <span key={user.user_id}>
-                        <Link to={`/${user.username}`} key={user.username}>{user.username}</Link>
-                        <button onClick={() => addBuddy(user.user_id)}>add buddy</button>
+                    <span className='search-item' key={search.user_id}>
+                        <Link to={`/${search.username}`} key={search.username}>{search.username}</Link>
+                        {user.username === search.username ? <Link to={`/${user.username}`} className='add-buddy'>go to card</Link> : !buddies.some(e => e.user_buddy === search.user_id) ? <button className='add-buddy' onClick={() => addBuddy(search.user_id)}>add buddy</button> : <button className='added'>added</button>}
                     </span>
                 )
             })}

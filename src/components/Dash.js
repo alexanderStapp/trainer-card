@@ -1,10 +1,11 @@
 import axios from 'axios'
-import {useEffect, useState} from 'react'
+import {useEffect, useContext} from 'react'
+import {BuddyContext} from '../context/BuddyContext'
 import {Link} from 'react-router-dom'
 import TradesList from './TradesList'
 
 function Dash() {
-    const [buddies, setBuddies] = useState([])
+    const {buddies, setBuddies} = useContext(BuddyContext)
     
     useEffect(() => {
         axios.get('/api/dash')

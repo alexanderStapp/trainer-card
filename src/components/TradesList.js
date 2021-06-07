@@ -12,7 +12,7 @@ function TradesList(props) {
     }, [props.buddy])
 
     return (
-        <div>
+        <div className='bud-trade'>
             <p>TRADES</p>
             {budTrades.map(e => {
                 return(
