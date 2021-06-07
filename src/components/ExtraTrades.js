@@ -3,12 +3,17 @@ import {TradeContext} from '../context/TradeContext'
 
 function ExtraTrades(props) {
     const {tradesExtra, handleDelete} = useContext(TradeContext)
+
+
+
     return (
         <div className='trade-extra'>
             {tradesExtra.map(trade => {
                 return (
                     <div key={trade.trade_id} className='trade-item-extra'>
-                        <img className='looking-pic' src={trade.sprite1} alt={trade.name1}/>
+                        <div className='icon-wrapper'>
+                            <img className='looking-icon' src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/${trade.poke_id1}.png`} alt={trade.name1}/>
+                        </div>
                         <span className='trade-message'>
                             <h3 className='looking-for'>looking for {trade.name1}</h3>
                             <h3 className='willing-to'>willing to trade {trade.name2}</h3>
@@ -17,7 +22,9 @@ function ExtraTrades(props) {
                                 handleDelete(trade.trade_id)
                                 e.stopPropagation()
                             }}>remove trade</button>}
-                        <img className='willing-pic' src={trade.sprite2} alt={trade.name2}/>
+                            <div className='icon-wrapper'>
+                                <img className='willing-icon' src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/${trade.poke_id2}.png`} alt={trade.name2}/>
+                            </div>
                     </div>
                 )
             })}

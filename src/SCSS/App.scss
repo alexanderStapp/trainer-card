@@ -216,6 +216,11 @@ $item-flex: (
   img {
     width: 75px;
   }
+  .delete-trade {
+    position: absolute;
+    bottom: -5px;
+    right: 22%;
+  }
 }
 
 .trade-message {
@@ -230,11 +235,7 @@ $item-flex: (
   bottom: 0;
 }
 
-.delete-trade {
-  position: absolute;
-  bottom: -5px;
-  right: 22%;
-}
+
 
 .trade-extra {
   position: absolute;
@@ -252,13 +253,23 @@ $item-flex: (
   width: 354.19px;
   position: relative;
   display: flex;
-	justify-content: space-between;
-	align-items: flex-start;
+	justify-content: space-around;
+	align-items: center;
   margin-top: -3px;
   margin-bottom: 20px;
   img {
-    width: 75px;
+    width: 50px;
   }
+  .delete-trade {
+    position: absolute;
+    bottom: -14px;
+    right: 22%;
+  }
+}
+
+.icon-wrapper {
+  background: linear-gradient(175deg, rgb(219, 219, 219) 30%, rgba(159,241,255,1) 100%);
+  border-radius: 6px;
 }
 
 .search-form {
@@ -313,8 +324,10 @@ $item-flex: (
 }
 
 .buddy-item {
+  position: relative;
   @include futura;
   width: 100%;
+  min-height: 70px;
   background: linear-gradient(175deg, rgba(255,255,255,1) 30%, rgba(159,241,255,1) 100%);
   margin: 10px 0 10px 0;
   border-left: 5px solid rgb(96, 153, 175);
@@ -334,6 +347,11 @@ $item-flex: (
     margin-right: 5px;
     border-radius: 6px;
     padding-bottom: 5px;
+  }
+  button {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
   }
 }
 
