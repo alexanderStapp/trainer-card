@@ -5,7 +5,7 @@ import {UserContext} from '../context/UserContext'
 import {TradeContext} from '../context/TradeContext'
 import ExtraTrades from './ExtraTrades'
 import {RiPencilFill, RiQrCodeFill} from 'react-icons/ri'
-import {useSpring, useTrail, animated} from 'react-spring'
+import {useSpring, animated} from 'react-spring'
 import {Link} from 'react-router-dom'
 
 function Card(props) {
@@ -14,7 +14,7 @@ function Card(props) {
     const [flipped, setFlip] = useState(false)
     const {handleEdit} = useContext(CardContext)
     const {user} = useContext(UserContext)
-    const {initTrades, setInitTrades, tradesMain, setTradesMain, tradesExtra, setTradesExtra, handleDelete} = useContext(TradeContext)
+    const {initTrades, setInitTrades, tradesMain, setTradesMain, setTradesExtra, handleDelete} = useContext(TradeContext)
     const {username} = props.match.params
     const {transform, opacity} = useSpring({
         opacity: flipped ? 1 : 0,

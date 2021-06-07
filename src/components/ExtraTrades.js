@@ -2,7 +2,7 @@ import {useContext} from 'react'
 import {TradeContext} from '../context/TradeContext'
 
 function ExtraTrades(props) {
-    const {tradesExtra, setTradesExtra, handleDelete} = useContext(TradeContext)
+    const {tradesExtra, handleDelete} = useContext(TradeContext)
     return (
         <div className='trade-extra'>
             {tradesExtra.map(trade => {
