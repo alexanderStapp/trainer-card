@@ -2,6 +2,8 @@ import axios from 'axios'
 import {useEffect, useContext} from 'react'
 import {BuddyContext} from '../context/BuddyContext'
 import {Link} from 'react-router-dom'
+import {RiProjectorFill} from 'react-icons/ri'
+import {FaUserMinus} from 'react-icons/fa'
 import TradesList from './TradesList'
 
 function Dash() {
@@ -27,8 +29,9 @@ function Dash() {
                     <span className='buddy-item' key={buddy.user_buddy}>
                         <span className='buddy-profile'>
                             <img src={buddy.chibi} alt={buddy.username} key={buddy.pic} />
-                            <Link to={`/${buddy.username}`} key={buddy.username}>{buddy.username}</Link>
-                            <button onClick={() => removeBuddy(buddy.buddy_id)}>remove buddy</button>
+                            <Link id='buddy-username' to={`/${buddy.username}`} key={buddy.username}>{buddy.username}</Link>
+                            <Link id='buddy-card-icon' to={`/${buddy.username}`} key={buddy.username}><RiProjectorFill /></Link>
+                            <button onClick={() => removeBuddy(buddy.buddy_id)}><FaUserMinus /></button>
                         </span>
                         <TradesList buddy_id={buddy.user_buddy} />
                     </span>
