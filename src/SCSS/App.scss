@@ -217,9 +217,16 @@ $item-flex: (
     width: 75px;
   }
   .delete-trade {
+    visibility: hidden;
     position: absolute;
     top: -5px;
     right: -5px;
+  }
+}
+
+.trade-item-main:hover {
+  .delete-trade{
+    visibility: visible;
   }
 }
 
@@ -259,9 +266,16 @@ $item-flex: (
     width: 50px;
   }
   .delete-trade {
+    visibility: hidden;
     position: absolute;
     top: 1px;
     right: 1px;
+  }
+}
+
+.trade-item-extra:hover {
+  .delete-trade{
+    visibility: visible;
   }
 }
 
