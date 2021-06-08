@@ -5,6 +5,7 @@ import Card from './components/Card'
 import EditCard from './components/EditCard'
 import Search from './components/Search'
 import Pokemon from './components/Pokemon'
+import Chat from './components/Chat'
 
 export default (
     <Switch>
@@ -13,6 +14,7 @@ export default (
         <Route path='/search' component={Search} />
         <Route path='/editcard' component={EditCard} />
         <Route path='/pokemon' component={Pokemon} />
+        <Route path='/chat' component={Chat} />
         <Route path='/:username' component={Card} />
     </Switch>
 )

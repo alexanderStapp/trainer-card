@@ -40,9 +40,21 @@ const io = require('socket.io')(app.listen(SERVER_PORT, () =>
 // ENDPOINTS
 
 // sockets
-io.on('connection', (socket) => {
-    console.log(`socket ${socket.id} connected :)`)
-})
+    io.on('connection', (socket) => {
+        console.log(`socket ${socket.id} connected :)`)
+        socket.on('disconnect', () => {
+            console.log(`socket ${socket.id} disconnected!`)
+        })
+        socket.on('send-msg', body => {
+            console.log(body)
+            // axios call to db to save msg and get all msg
+            io.emit('relay-msg', body)
+        })
+        socket.on('join-room', body => {
+            socket.join(body.roomID)
+            io.to(body.roomID).emit('broadcast-join-room', body)
+        })
+    })
 
 // auth
     app.post('/auth/register', authCtrl.register)

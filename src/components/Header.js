@@ -12,8 +12,8 @@ const Header = () => {
                 <Link to='/dash'>DASHBOARD</Link>
                 <Link to={`/${user.username}`}>CARD</Link>
                 <Link to='/search'>SEARCH</Link>
+                <Link to='/chat'>CHAT</Link>
                 <Link to='/' onClick={handleLogout}>LOGOUT</Link>
-                <Chat />
         </header>
     ) : (
         <header className='header'>
