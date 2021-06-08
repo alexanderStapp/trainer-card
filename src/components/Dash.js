@@ -28,9 +28,9 @@ function Dash() {
                 return (
                     <span className='buddy-item' key={buddy.user_buddy}>
                         <span className='buddy-profile'>
-                            <img src={buddy.chibi} alt={buddy.username} key={buddy.pic} />
-                            <Link id='buddy-username' to={`/${buddy.username}`} key={buddy.username}>{buddy.username}</Link>
-                            <Link id='buddy-card-icon' to={`/${buddy.username}`} key={buddy.username}><RiProjectorFill /></Link>
+                            <img src={buddy.chibi} alt={buddy.username} />
+                            <Link id='buddy-username' to={`/${buddy.username}`}>{buddy.username}</Link>
+                            <Link id='buddy-card-icon' to={`/${buddy.username}`}><RiProjectorFill /></Link>
                             <button onClick={() => removeBuddy(buddy.buddy_id)}><FaUserMinus /></button>
                         </span>
                         <TradesList buddy_id={buddy.user_buddy} />

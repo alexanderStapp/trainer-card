@@ -100,7 +100,7 @@ function Card(props) {
                 <ExtraTrades editView={editView}/>
                 {editView && <Link to='/pokemon' className='add-trade'>add a trade</Link>}
             </animated.div>
-            <button className='undo-qr'><RiQrCodeFill /></button>
+            <Link to={`/qr/${username}`} className='undo-qr' username={username}><RiQrCodeFill /></Link>
             {editView && <button className='edit-save' onClick={handleEdit}><RiPencilFill /></button>}
         </div>
     )

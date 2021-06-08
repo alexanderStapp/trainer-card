@@ -93,6 +93,11 @@
   will-change: transform, opacity;
 }
 
+.qr-code {
+  margin: 60px;
+  width: 400px;
+}
+
 .trainer-edit {
   @extend .trainer-card;
   background: url(./svg/Card-Front.png);

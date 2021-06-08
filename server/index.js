@@ -32,29 +32,30 @@ massive({
 }).then(db => {
     app.set('db', db)
     console.log('database connected!')
+    app.listen(SERVER_PORT, () => console.log(`server is listening on port ${SERVER_PORT} :3`))
 }).catch(err => console.log(err))
 
-const io = require('socket.io')(app.listen(SERVER_PORT, () => 
-    console.log(`server is listening on port ${SERVER_PORT} :3`)), {cors: {origin: true}})
+// const io = require('socket.io')(app.listen(SERVER_PORT, () => 
+//     console.log(`server is listening on port ${SERVER_PORT} :3`)), {cors: {origin: true}})
 
 // ENDPOINTS
 
 // sockets
-    io.on('connection', (socket) => {
-        console.log(`socket ${socket.id} connected :)`)
-        socket.on('disconnect', () => {
-            console.log(`socket ${socket.id} disconnected!`)
-        })
-        socket.on('send-msg', body => {
-            console.log(body)
-            // axios call to db to save msg and get all msg
-            io.emit('relay-msg', body)
-        })
-        socket.on('join-room', body => {
-            socket.join(body.roomID)
-            io.to(body.roomID).emit('broadcast-join-room', body)
-        })
-    })
+    // io.on('connection', (socket) => {
+    //     console.log(`socket ${socket.id} connected :)`)
+    //     socket.on('disconnect', () => {
+    //         console.log(`socket ${socket.id} disconnected!`)
+    //     })
+    //     socket.on('send-msg', body => {
+    //         console.log(body)
+    //         // axios call to db to save msg and get all msg
+    //         io.emit('relay-msg', body)
+    //     })
+    //     socket.on('join-room', body => {
+    //         socket.join(body.roomID)
+    //         io.to(body.roomID).emit('broadcast-join-room', body)
+    //     })
+    // })
 
 // auth
     app.post('/auth/register', authCtrl.register)

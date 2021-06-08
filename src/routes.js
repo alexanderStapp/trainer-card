@@ -6,6 +6,7 @@ import EditCard from './components/EditCard'
 import Search from './components/Search'
 import Pokemon from './components/Pokemon'
 import Chat from './components/Chat'
+import QR from './components/QR'
 
 export default (
     <Switch>
@@ -15,6 +16,7 @@ export default (
         <Route path='/editcard' component={EditCard} />
         <Route path='/pokemon' component={Pokemon} />
         <Route path='/chat' component={Chat} />
+        <Route path='/qr/:username' component={QR} />
         <Route path='/:username' component={Card} />
     </Switch>
 )
