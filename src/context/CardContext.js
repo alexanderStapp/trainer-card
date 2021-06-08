@@ -1,11 +1,12 @@
 import axios from 'axios'
-import {createContext, useContext} from 'react'
+import {createContext, useContext, useState} from 'react'
 import {UserContext} from './UserContext'
 import {useHistory} from 'react-router-dom'
 
 export const CardContext = createContext()
 
 export const CardProvider = (props) => {
+    const [userInfo, setUserInfo] = useState(null)
     const {user, setUser} = useContext(UserContext)
     const {push} = useHistory()
 
@@ -23,6 +24,8 @@ export const CardProvider = (props) => {
 
     return (
         <CardContext.Provider value={{
+            userInfo,
+            setUserInfo,
             handleEdit,
             handleSave,
         }}>

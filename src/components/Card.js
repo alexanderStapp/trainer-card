@@ -3,18 +3,20 @@ import {useContext, useEffect, useState} from 'react'
 import {CardContext} from '../context/CardContext'
 import {UserContext} from '../context/UserContext'
 import {TradeContext} from '../context/TradeContext'
+import {BuddyContext} from '../context/BuddyContext'
 import ExtraTrades from './ExtraTrades'
-import {RiPencilFill, RiQrCodeFill} from 'react-icons/ri'
+import {RiPencilFill, RiQrCodeFill, RiCloseCircleFill} from 'react-icons/ri'
 import {useSpring, animated} from 'react-spring'
 import {Link} from 'react-router-dom'
-import {RiCloseCircleFill} from 'react-icons/ri'
+import {FaUserPlus} from 'react-icons/fa'
+
 
 function Card(props) {
-    const [userInfo, setUserInfo] = useState(null)
     const [editView, setEditView] = useState(false)
     const [flipped, setFlip] = useState(false)
-    const {handleEdit} = useContext(CardContext)
+    const {userInfo, setUserInfo, handleEdit} = useContext(CardContext)
     const {user} = useContext(UserContext)
+    const {addBuddy} = useContext(BuddyContext)
     const {initTrades, setInitTrades, tradesMain, setTradesMain, setTradesExtra, handleDelete} = useContext(TradeContext)
     const {username} = props.match.params
     const {transform, opacity} = useSpring({
@@ -101,6 +103,13 @@ function Card(props) {
                 {editView && <Link to='/pokemon' className='add-trade'>add a trade</Link>}
             </animated.div>
             <Link to={`/qr/${username}`} className='undo-qr' username={username}><RiQrCodeFill /></Link>
+            {/* <CardAddRem className='edit-save'/> */}
+            {!editView &&
+                <button className='edit-save' onClick={(e) => {
+                    addBuddy(userInfo.user_id)
+                    e.stopPropagation()
+                }}><FaUserPlus /></button>
+            }
             {editView && <button className='edit-save' onClick={handleEdit}><RiPencilFill /></button>}
         </div>
     )
