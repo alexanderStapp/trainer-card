@@ -25,17 +25,25 @@ app.use(session ({
     cookie: {maxAge: 1000 *60 *60 *24}
 }))
 
-// DATABASE CONNECTION
+// DATABASE/SERVER/SOCKET CONNECTION
 massive({
     connectionString: CONNECTION_STRING,
     ssl: {rejectUnauthorized: false}
 }).then(db => {
     app.set('db', db)
     console.log('database connected!')
-    app.listen(SERVER_PORT, () => console.log(`server is listening on port ${SERVER_PORT} :3`))
 }).catch(err => console.log(err))
 
+const io = require('socket.io')(app.listen(SERVER_PORT, () => 
+    console.log(`server is listening on port ${SERVER_PORT} :3`)), {cors: {origin: true}})
+
 // ENDPOINTS
+
+// sockets
+io.on('connection', (socket) => {
+    console.log(`socket ${socket.id} connected :)`)
+})
+
 // auth
     app.post('/auth/register', authCtrl.register)
     app.post('/auth/login', authCtrl.login)
