@@ -4,8 +4,6 @@ import {TradeContext} from '../context/TradeContext'
 function ExtraTrades(props) {
     const {tradesExtra, handleDelete} = useContext(TradeContext)
 
-
-
     return (
         <div className='trade-extra'>
             {tradesExtra.map(trade => {
@@ -21,7 +19,7 @@ function ExtraTrades(props) {
                             {props.editView && <button className='delete-trade' onClick={(e) => {
                                 handleDelete(trade.trade_id)
                                 e.stopPropagation()
-                            }}>remove trade</button>}
+                            }}>X</button>}
                             <div className='icon-wrapper'>
                                 <img className='willing-icon' src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/${trade.poke_id2}.png`} alt={trade.name2}/>
                             </div>

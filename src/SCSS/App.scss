@@ -266,7 +266,8 @@ $item-flex: (
 }
 
 .icon-wrapper {
-  background: linear-gradient(175deg, rgb(238, 254, 255) 30%, rgba(127, 251, 255, 0.5) 100%);
+  background: rgb(224,98,96);
+  background: linear-gradient(163deg, rgba(224,98,96,1) 35%, rgba(240,182,98,1) 100%);
   border-radius: 6px;
 }
 
@@ -367,9 +368,14 @@ $item-flex: (
 }
 
 .trade-launch {
+  background: rgb(0, 139, 163);
+  box-shadow: 0px 0px 8px rgb(0, 139, 163);
+  position: sticky;
+  top: 10px;
   width: 460px;
+  border-radius: 6px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 	align-items: center;
   button {
     height: 36px;

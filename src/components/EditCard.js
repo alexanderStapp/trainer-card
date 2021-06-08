@@ -13,17 +13,8 @@ function EditCard() {
     const [switchID, setSwitchID] = useState('')
     const [homeID, setHomeID] = useState('')
     const [profilePic, setProfilePic] = useState(user.pic)
-    // const [picSelect, setPicSelect] = useState([])
     const {handleSave} = useContext(CardContext)
     const {push} = useHistory()
-
-    // useEffect(() => {
-    //     axios.get('/api/card/')
-    //         .then(res => {
-    //             console.log(res.data)
-    //             setPicSelect(res.data)
-    //         }).catch(err => console.log(err))
-    // }, [])
 
     useEffect(() => {
         axios.get(`/api/card/${user.username}`)

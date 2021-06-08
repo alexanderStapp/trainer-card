@@ -35,16 +35,16 @@ const Pokemon = () => {
             </div>
             <div className='poke-list'>
                 <div className='poke-item'>
-                    <button onClick={() => handleLooking('any pokemon')}>looking for</button>
+                    <button onClick={() => handleLooking('any pokemon')}>looking</button>
                     <p>any pokemon</p>
-                    <button onClick={() => handleWilling('any pokemon')}>willing to trade</button>
+                    <button onClick={() => handleWilling('any pokemon')}>trading</button>
                 </div>
                 {pokemon.map(poke => {
                     return (
                         <div key={poke.name} className='poke-item'>
-                            <button onClick={() => handleLooking(poke.name)}>looking for</button>
+                            <button onClick={() => handleLooking(poke.name)}>looking</button>
                             <p>{poke.name}</p>
-                            <button onClick={() => handleWilling(poke.name)}>willing to trade</button>
+                            <button onClick={() => handleWilling(poke.name)}>trading</button>
                         </div>
                     )
                 })}

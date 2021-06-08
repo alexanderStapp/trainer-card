@@ -91,7 +91,7 @@ function Card(props) {
                             {editView && <button className='delete-trade' onClick={(e) => {
                                 handleDelete(trade.trade_id)
                                 e.stopPropagation()
-                            }}>remove trade</button>}
+                            }}>X</button>}
                             <img className='willing-pic' src={trade.sprite2} alt={trade.name2}/>
                         </div>
                     )
