@@ -368,11 +368,11 @@ $item-flex: (
 }
 
 .trade-launch {
-  background: rgb(0, 139, 163);
-  box-shadow: 0px 0px 8px rgb(0, 139, 163);
+  background: rgb(196, 255, 252);
   position: sticky;
   top: 10px;
   width: 460px;
+  border-radius: 2px solid rgb(38, 193, 255);
   border-radius: 6px;
   display: flex;
   justify-content: space-around;
@@ -383,6 +383,7 @@ $item-flex: (
     border-radius: 6px;
     margin-top: 10px;
     padding: 5px 10px 8px 11px;
+    background: linear-gradient(175deg, rgba(255,255,255,1) 30%, rgba(159,241,255,1) 100%);
     font: inherit;
     cursor: pointer;
     width: 80px;

@@ -61,9 +61,13 @@ function EditCard() {
             </span>
             <select className='edit-pic' onChange={e => setProfilePic(e.target.value)}>
                 <option value={user.pic}>select an option</option>
-                <option style={{backgroundImage: `url('https://cdn2.bulbagarden.net/upload/0/00/Spr_DP_Dawn.png')`}} value={1} data-icon='https://cdn2.bulbagarden.net/upload/0/00/Spr_DP_Dawn.png'>1</option>
-                <option value={2}>2</option>
-                <option value={3}>3</option>
+                <option value={3}>red</option>
+                <option value={6}>ethan</option>
+                <option value={7}>lyra</option>
+                <option value={1}>brendan</option>
+                <option value={5}>may</option>
+                <option value={4}>lucas</option>
+                <option value={2}>dawn</option>
             </select>
             <button className='undo-qr' onClick={() => push(`/${user.username}`)}><RiArrowLeftFill /></button>
             <button className='edit-save' onClick={() => handleSave(threedsID, switchID, homeID, profilePic)}><RiSave2Fill /></button>
