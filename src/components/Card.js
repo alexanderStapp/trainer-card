@@ -5,10 +5,10 @@ import {UserContext} from '../context/UserContext'
 import {TradeContext} from '../context/TradeContext'
 import {BuddyContext} from '../context/BuddyContext'
 import ExtraTrades from './ExtraTrades'
-import {RiPencilFill, RiQrCodeFill, RiCloseCircleFill} from 'react-icons/ri'
+import {RiCloseCircleFill} from 'react-icons/ri'
+import {FaUserPlus, FaPen, FaQrcode} from 'react-icons/fa'
 import {useSpring, animated} from 'react-spring'
 import {Link} from 'react-router-dom'
-import {FaUserPlus} from 'react-icons/fa'
 
 
 function Card(props) {
@@ -102,7 +102,7 @@ function Card(props) {
                 <ExtraTrades editView={editView}/>
                 {editView && <Link to='/pokemon' className='add-trade'>add a trade</Link>}
             </animated.div>
-            <Link to={`/qr/${username}`} className='undo-qr' username={username}><RiQrCodeFill /></Link>
+            <Link to={`/qr/${username}`} className='undo-qr' username={username}><FaQrcode /></Link>
             {/* <CardAddRem className='edit-save'/> */}
             {!editView &&
                 <button className='edit-save' onClick={(e) => {
@@ -110,7 +110,7 @@ function Card(props) {
                     e.stopPropagation()
                 }}><FaUserPlus /></button>
             }
-            {editView && <button className='edit-save' onClick={handleEdit}><RiPencilFill /></button>}
+            {editView && <button className='edit-save' onClick={handleEdit}><FaPen /></button>}
         </div>
     )
 }

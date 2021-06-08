@@ -2,7 +2,7 @@ import {useContext, useEffect, useState} from 'react'
 import {CardContext} from '../context/CardContext'
 import {UserContext} from '../context/UserContext'
 import {useHistory} from 'react-router-dom'
-import {RiSave2Fill, RiArrowLeftFill} from 'react-icons/ri'
+import {FaSave, FaArrowCircleLeft} from 'react-icons/fa'
 import InputMask from 'react-input-mask'
 import axios from 'axios'
 
@@ -69,8 +69,8 @@ function EditCard() {
                 <option value={4}>lucas</option>
                 <option value={2}>dawn</option>
             </select>
-            <button className='undo-qr' onClick={() => push(`/${user.username}`)}><RiArrowLeftFill /></button>
-            <button className='edit-save' onClick={() => handleSave(threedsID, switchID, homeID, profilePic)}><RiSave2Fill /></button>
+            <button className='undo-qr' onClick={() => push(`/${user.username}`)}><FaArrowCircleLeft /></button>
+            <button className='edit-save' onClick={() => handleSave(threedsID, switchID, homeID, profilePic)}><FaSave /></button>
         </div>
     )
 }
