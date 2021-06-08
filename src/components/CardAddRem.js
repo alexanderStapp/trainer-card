@@ -1,6 +1,5 @@
 // import {useContext} from 'react'
 // import {FaUserPlus, FaUserMinus} from 'react-icons/fa'
-// import {UserContext} from '../context/UserContext'
 // import {BuddyContext} from '../context/BuddyContext'
 // import {CardContext} from '../context/CardContext'
 

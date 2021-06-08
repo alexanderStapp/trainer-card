@@ -1,7 +1,6 @@
 import {Link} from 'react-router-dom'
 import {useContext} from 'react'
 import {UserContext} from '../context/UserContext'
-import Chat from './Chat'
 
 const Header = () => {
     const {user, handleLogout} = useContext(UserContext)
