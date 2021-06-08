@@ -1,5 +1,6 @@
 import {useContext} from 'react'
 import {TradeContext} from '../context/TradeContext'
+import {RiCloseCircleFill} from 'react-icons/ri'
 
 function ExtraTrades(props) {
     const {tradesExtra, handleDelete} = useContext(TradeContext)
@@ -19,7 +20,7 @@ function ExtraTrades(props) {
                             {props.editView && <button className='delete-trade' onClick={(e) => {
                                 handleDelete(trade.trade_id)
                                 e.stopPropagation()
-                            }}>X</button>}
+                            }}><RiCloseCircleFill /></button>}
                             <div className='icon-wrapper'>
                                 <img className='willing-icon' src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/${trade.poke_id2}.png`} alt={trade.name2}/>
                             </div>

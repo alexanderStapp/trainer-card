@@ -7,6 +7,7 @@ import ExtraTrades from './ExtraTrades'
 import {RiPencilFill, RiQrCodeFill} from 'react-icons/ri'
 import {useSpring, animated} from 'react-spring'
 import {Link} from 'react-router-dom'
+import {RiCloseCircleFill} from 'react-icons/ri'
 
 function Card(props) {
     const [userInfo, setUserInfo] = useState(null)
@@ -91,7 +92,7 @@ function Card(props) {
                             {editView && <button className='delete-trade' onClick={(e) => {
                                 handleDelete(trade.trade_id)
                                 e.stopPropagation()
-                            }}>X</button>}
+                            }}><RiCloseCircleFill /></button>}
                             <img className='willing-pic' src={trade.sprite2} alt={trade.name2}/>
                         </div>
                     )
