@@ -6,7 +6,6 @@ const massive = require('massive')
 const {CONNECTION_STRING, SESSION_SECRET, SERVER_PORT} = process.env
 
 // CONTROLLERS
-
 const authCtrl = require('./controllers/authController')
 const cardCtrl = require('./controllers/cardController')
 const searchCtrl = require('./controllers/searchController')

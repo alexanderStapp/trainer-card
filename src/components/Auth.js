@@ -6,7 +6,7 @@ function Auth() {
     const [password, setPassword] = useState('')
     const {handleLogin, handleRegister} = useContext(UserContext)
     return (
-        <div className='login'>
+        <form className='login'>
             <h1>TrainerCard</h1>
             <input className='input' value={username} onChange={e => setUsername(e.target.value)} />
             <input type='password' className='input' value={password} onChange={e => setPassword(e.target.value)} />
@@ -14,7 +14,7 @@ function Auth() {
                 <button className='style-button' onClick={() => handleLogin(username, password)}>Login</button>
                 <button className='style-button' onClick={() => handleRegister(username, password)}>Register</button>
             </div>
-        </div>
+        </form>
     )
 }
 
