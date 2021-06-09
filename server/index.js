@@ -2,6 +2,7 @@ require('dotenv').config()
 const express = require('express')
 const session = require('express-session')
 const massive = require('massive')
+const nodemailer = require('nodemailer')
 
 const {CONNECTION_STRING, SESSION_SECRET, SERVER_PORT} = process.env
 
@@ -24,7 +25,7 @@ app.use(session ({
     cookie: {maxAge: 1000 *60 *60 *24}
 }))
 
-// DATABASE/SERVER/SOCKET CONNECTION
+// DATABASE/SERVER
 massive({
     connectionString: CONNECTION_STRING,
     ssl: {rejectUnauthorized: false}
@@ -55,6 +56,17 @@ massive({
     //         io.to(body.roomID).emit('broadcast-join-room', body)
     //     })
     // })
+
+// mailer
+app.post('/send', function(req, res, next) {
+    const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'emailaddr',
+            pass: 'password'
+        }
+    })
+})
 
 // auth
     app.post('/auth/register', authCtrl.register)
