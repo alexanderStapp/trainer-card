@@ -1,0 +1,764 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body, body > div {
+  height: 100%;
+  width: 100%;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #b8b8b8;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #8d8d8d;
+}
+
+@font-face {
+  font-family: 'Pokemon-Dialogue';
+  src: URL("./fonts/pkmndp.ttf") format("truetype");
+}
+
+.style-button {
+  border: 1px solid #6b6b6b;
+  border-radius: 6px;
+  padding: 5px 10px 8px 10px;
+  font: inherit;
+  cursor: pointer;
+  width: 80px;
+}
+
+.App {
+  background-color: #85FFBD;
+  background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 100%;
+}
+
+.audio-control {
+  position: absolute;
+  top: 1.5%;
+  right: 2%;
+}
+
+.header {
+  font-family: Futura,Trebuchet MS,Arial,sans-serif;
+  font-weight: bold;
+  width: 600px;
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: stretch;
+      align-content: stretch;
+}
+
+.login {
+  font-family: Futura,Trebuchet MS,Arial,sans-serif;
+  font-weight: bold;
+  height: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 15vh;
+}
+
+.register {
+  font-family: Futura,Trebuchet MS,Arial,sans-serif;
+  font-weight: bold;
+  height: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 15vh;
+  height: 250px;
+}
+
+.input {
+  border: solid 1px #3a3a3a;
+  border-radius: 6px;
+  height: 30px;
+  padding: 0 10px 0 10px;
+}
+
+.auth-buttons {
+  width: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.extra-card {
+  position: absolute;
+  top: 15vh;
+}
+
+.trainer-card, .trainer-edit {
+  font-family: Pokemon-Dialogue;
+  color: #424242;
+  text-shadow: 1.5px 1.5px #949494;
+  width: 461px;
+  height: 338px;
+  will-change: transform, opacity;
+}
+
+.qr-code {
+  margin: 60px;
+  width: 400px;
+}
+
+.trainer-edit {
+  background: url(./svg/Card-Front.png);
+  position: absolute;
+  top: 15vh;
+}
+
+.front {
+  background: url(./svg/Card-Front.png);
+  position: absolute;
+}
+
+.card-name {
+  position: absolute;
+  top: 14.8%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 52%;
+  margin-left: 5%;
+}
+
+.card-threeds {
+  position: absolute;
+  top: 23.8%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 52%;
+  margin-left: 5%;
+}
+
+.card-switch {
+  position: absolute;
+  top: 37.5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 52%;
+  margin-left: 5%;
+}
+
+.card-home {
+  position: absolute;
+  top: 47%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 52%;
+  margin-left: 5%;
+}
+
+.card-home > input, .card-switch > input, .edit-home > input, .card-threeds > input {
+  font-weight: bold;
+  width: 45%;
+  background: none;
+  color: inherit;
+  border: 1px solid #6d6d6d;
+  border-radius: 6px;
+  padding: 0;
+  font: inherit;
+  font-size: inherit;
+}
+
+.card-pic {
+  position: absolute;
+  top: 30%;
+  right: 10%;
+  width: 20%;
+}
+
+.edit-pic {
+  position: absolute;
+  top: 30%;
+  right: 10%;
+  width: 20%;
+  height: 27.5%;
+  background: none;
+}
+
+.edit-save {
+  color: black;
+  position: absolute;
+  right: 16px;
+  bottom: -24px;
+}
+
+.undo-qr {
+  color: black;
+  position: absolute;
+  right: 44px;
+  bottom: -24px;
+}
+
+.back {
+  background: url(./svg/trainercard_back_v2.png);
+  background-repeat: no-repeat;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 4%;
+}
+
+.trade-item-main {
+  position: relative;
+  margin-bottom: 2.5%;
+  margin-left: .9%;
+  width: 93%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.trade-item-main img {
+  width: 75px;
+}
+
+.trade-item-main .delete-trade {
+  visibility: hidden;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+}
+
+.trade-item-main:hover .delete-trade {
+  visibility: visible;
+}
+
+.trade-message {
+  height: 62px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.add-trade {
+  position: absolute;
+  bottom: 0;
+}
+
+.trade-extra {
+  position: absolute;
+  top: 58%;
+  overflow: hidden;
+  height: 32%;
+  width: 79%;
+}
+
+.trade-extra:hover {
+  overflow: auto;
+}
+
+.trade-item-extra {
+  width: 354.19px;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: -3px;
+  margin-bottom: 20px;
+}
+
+.trade-item-extra img {
+  width: 50px;
+}
+
+.trade-item-extra .delete-trade {
+  visibility: hidden;
+  position: absolute;
+  top: -7.5px;
+  right: -7.5px;
+}
+
+.trade-item-extra:hover .delete-trade {
+  visibility: visible;
+}
+
+.icon-wrapper {
+  position: relative;
+  background: #e06260;
+  background: linear-gradient(163deg, #e06260 35%, #f0b662 100%);
+  border-radius: 6px;
+}
+
+.search-form {
+  width: 280px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.search-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.search-item {
+  background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+  margin-top: 16px;
+  border: 1px solid #6b6b6b;
+  border-radius: 6px;
+  padding-left: 10px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.search-button {
+  border: 1px solid #6b6b6b;
+  border-radius: 6px;
+  padding: 5px 10px 8px 11px;
+  font: inherit;
+  cursor: pointer;
+}
+
+.add-buddy {
+  border: 1px solid #6b6b6b;
+  border-radius: 6px;
+  padding: 5px 10px 8px 11px;
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  border-left: 1px solid #6b6b6b;
+}
+
+.added {
+  border: 1px solid #6b6b6b;
+  border-radius: 6px;
+  padding: 5px 10px 8px 11px;
+  font: inherit;
+  cursor: pointer;
+  font-style: italic;
+  color: gray;
+  border: none;
+  border-left: 1px solid #6b6b6b;
+}
+
+.buddies-view {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 340px;
+}
+
+.buddy-item {
+  position: relative;
+  font-family: Futura,Trebuchet MS,Arial,sans-serif;
+  font-weight: bold;
+  width: 100%;
+  min-height: 70px;
+  background: linear-gradient(175deg, white 30%, #9ff1ff 100%);
+  margin: 10px 0 10px 0;
+  border-left: 5px solid #6099af;
+  border-radius: 6px;
+  padding: 10px;
+  -webkit-box-shadow: 0 0 10px lightgrey;
+          box-shadow: 0 0 10px lightgrey;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.buddy-profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.buddy-profile img {
+  background: linear-gradient(163deg, #c4e8ed 0%, #e8e8e8 100%);
+  margin-right: 5px;
+  border-radius: 6px;
+  padding-bottom: 5px;
+}
+
+.buddy-profile #buddy-username {
+  position: absolute;
+  top: 10px;
+  left: 50px;
+}
+
+.buddy-profile #buddy-card-icon {
+  position: absolute;
+  bottom: 5px;
+  left: 15px;
+}
+
+.buddy-profile button {
+  position: absolute;
+  bottom: 5px;
+  left: 45px;
+}
+
+.bud-trade, .bud-trade-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.bud-trade p, .bud-trade-item p {
+  margin-bottom: 10px;
+}
+
+.bud-trade-item {
+  background-color: #85FFBD;
+  background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+  border: 2px solid #737474;
+  border-radius: 6px;
+  margin: 5px;
+  padding: 5px 8px 5px 8px;
+}
+
+.poke-view {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.trade-launch {
+  background: #c4fffc;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 10px;
+  width: 460px;
+  border-radius: 2px solid #26c1ff;
+  border-radius: 6px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.trade-launch button {
+  height: 36px;
+  border: 1px solid lightgray;
+  border-radius: 6px;
+  margin-top: 10px;
+  padding: 5px 10px 8px 11px;
+  background: linear-gradient(175deg, white 30%, #9ff1ff 100%);
+  font: inherit;
+  cursor: pointer;
+  width: 80px;
+}
+
+.poke-launch {
+  height: 146px;
+  width: 130px;
+  background: linear-gradient(175deg, white 30%, #9ff1ff 100%);
+  margin: 10px 0 10px 0;
+  border-bottom: 5px solid #6099af;
+  border-radius: 6px;
+  padding: 10px;
+  -webkit-box-shadow: 0 0 10px lightgrey;
+          box-shadow: 0 0 10px lightgrey;
+}
+
+.poke-list {
+  width: 400px;
+}
+
+.poke-item {
+  font-family: Futura,Trebuchet MS,Arial,sans-serif;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.poke-item button {
+  border: 1px solid lightgray;
+  border-radius: 6px;
+  margin-top: 10px;
+  padding: 5px 10px 8px 10px;
+  background: linear-gradient(175deg, white 30%, #9ff1ff 100%);
+  font: inherit;
+  cursor: pointer;
+}
+
+.prev-next {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.prev-next button {
+  border: 1px solid lightgray;
+  border-radius: 6px;
+  margin-top: 10px;
+  padding: 5px 10px 8px 10px;
+  font: inherit;
+  cursor: pointer;
+  width: 120px;
+}
+
+.mob-nav {
+  position: relative;
+  display: none;
+}
+
+.nav-open {
+  width: 90vw;
+  margin-top: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.nav-close {
+  position: absolute;
+  top: 2vh;
+  left: 56vw;
+}
+
+.menu-nav {
+  overflow-y: scroll;
+  list-style: none;
+  position: fixed;
+  top: 0;
+  background: linear-gradient(163deg, #e06260 35%, #f0b662 100%);
+  left: 0;
+  bottom: 0;
+  height: 100vh;
+  width: 0;
+  overflow: hidden;
+  max-width: 290px;
+  z-index: 9;
+}
+
+.menu-nav.show-menu {
+  width: 100%;
+}
+
+.menu-nav.show-menu a {
+  display: block;
+  margin-top: 40px;
+  padding: 10px 40px;
+  text-decoration: none;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+@media (max-width: 480px) {
+  .header {
+    display: none;
+  }
+  .login {
+    margin: 10vh;
+  }
+  .qr-code {
+    width: 80vw;
+  }
+  .mob-nav {
+    display: block;
+  }
+}
+/*# sourceMappingURL=App.css.map */
