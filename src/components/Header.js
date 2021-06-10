@@ -2,6 +2,7 @@ import {Link} from 'react-router-dom'
 import {useState} from 'react'
 import {useContext} from 'react'
 import {UserContext} from '../context/UserContext'
+import {IoIosArrowForward, IoIosArrowBack} from 'react-icons/io'
 
 const Header = () => {
     const [nav, setNav] = useState(false)
@@ -22,9 +23,12 @@ const Header = () => {
                     <Link to='/' onClick={handleLogout}>LOGOUT</Link>
             </header>
             <nav className='mob-nav'>
-                <button className='nav-close' onClick={() => handleNavToggle()}>open</button>
+                <span className='nav-open'>
+                    <button onClick={() => handleNavToggle()}><IoIosArrowForward /></button>
+                    <Link to={`/${user.username}`} onClick={() => handleNavToggle()}>CARD</Link>
+                </span>
                 <ul className={`menu-nav ${nav ? ' show-menu' : ''}`}>
-                    <button className='nav-open' onClick={() => handleNavToggle()}>close</button>
+                    <button className='nav-close' onClick={() => handleNavToggle()}><IoIosArrowBack /></button>
                     <Link to='/dash' onClick={() => handleNavToggle()}>DASHBOARD</Link>
                     <Link to={`/${user.username}`} onClick={() => handleNavToggle()}>CARD</Link>
                     <Link to='/search' onClick={() => handleNavToggle()}>SEARCH</Link>

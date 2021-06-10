@@ -4,6 +4,7 @@ import {RiVolumeUpFill, RiVolumeMuteFill} from 'react-icons/ri'
 
 const PlayPause = () => {
   const [playpause, setPlaypause] = useState(false);
+
   return (
     <div className='audio-control' >
       <ReactHowler

@@ -486,10 +486,12 @@ $item-flex: (
   display: none;
 }
 
-.nav-close {
-  position: absolute;
-  top: 0;
-  left: 0;
+.nav-open {
+  width: 90vw;
+  margin-top: 15px;
+  display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
 }
 
 .menu-nav {
