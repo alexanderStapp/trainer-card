@@ -2,12 +2,12 @@ require('dotenv').config()
 const express = require('express')
 const session = require('express-session')
 const massive = require('massive')
-const nodemailer = require('nodemailer')
 
 const {CONNECTION_STRING, SESSION_SECRET, SERVER_PORT} = process.env
 
 // CONTROLLERS
 const authCtrl = require('./controllers/authController')
+const mailCtrl = require('./controllers/mailController')
 const cardCtrl = require('./controllers/cardController')
 const searchCtrl = require('./controllers/searchController')
 const buddyCtrl = require('./controllers/buddyController')
@@ -57,17 +57,6 @@ massive({
     //     })
     // })
 
-// mailer
-app.post('/send', function(req, res, next) {
-    const transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: 'emailaddr',
-            pass: 'password'
-        }
-    })
-})
-
 // auth
     app.post('/auth/register', authCtrl.register)
     app.post('/auth/login', authCtrl.login)
@@ -92,3 +81,6 @@ app.post('/send', function(req, res, next) {
     app.post('/api/dash/:buddy_id', buddyCtrl.addBuddy)
     app.get('/api/dash', buddyCtrl.getBuddies)
     app.delete('/api/dash/:buddy_id', buddyCtrl.removeBuddy)
+
+// mail
+    app.get('/api/mail', mailCtrl.send)

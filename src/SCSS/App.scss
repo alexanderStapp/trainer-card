@@ -506,7 +506,7 @@ $item-flex: (
 .nav-close {
   position: absolute;
   top: 2vh;
-  left: 60vw;
+  left: 56vw;
 }
 
 .menu-nav {
@@ -514,7 +514,7 @@ $item-flex: (
   list-style: none;
   position: fixed;
   top: 0;
-  background: darkcyan;
+  background: linear-gradient(163deg, rgba(224,98,96,1) 35%, rgba(240,182,98,1) 100%);
   left: 0;
   bottom: 0;
   height: 100vh;
@@ -531,7 +531,7 @@ $item-flex: (
     margin-top: 40px;
     padding: 10px 40px;
     text-decoration: none;
-    color: #3fffd2;
+    color: #ffffff;
     text-transform: uppercase;
     font-weight: bold;
   }
