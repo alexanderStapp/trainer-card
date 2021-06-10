@@ -23,10 +23,6 @@ function ExtraTrades(props) {
                             <h3 className='looking-for'>looking for {trade.name1}</h3>
                             <h3 className='willing-to'>willing to trade {trade.name2}</h3>
                         </span>
-                            {/* {props.editView && <button className='delete-trade' onClick={(e) => {
-                                handleDelete(trade.trade_id)
-                                e.stopPropagation()
-                            }}><RiCloseCircleFill /></button>} */}
                             {trade.name2 === 'any pokemon' ?
                                 <div className='icon-wrapper'>
                                     <img className='willing-icon' src='https://cdn2.bulbagarden.net/upload/8/8e/Spr_3r_000.png' alt={trade.name2}/>
