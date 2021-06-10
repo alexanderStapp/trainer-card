@@ -58,11 +58,7 @@ massive({
     //     })
     // })
 
-    app.use(express.static(__dirname + '../build'))
 
-    app.get('*', (res => {
-        res.sendFile(path.join(__dirname + '../build/index.html'))
-    }))
 
 // auth
     app.post('/auth/register', authCtrl.register)
@@ -91,3 +87,10 @@ massive({
 
 // mail
     app.put('/api/mail', mailCtrl.send)
+
+// build
+    app.use(express.static(__dirname + '../build'))
+
+    app.get('*', ((req, res) => {
+        res.sendFile(path.join(__dirname, '../build/index.html'))
+    }))
