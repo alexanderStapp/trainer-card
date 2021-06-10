@@ -16,10 +16,13 @@ module.exports = {
             from: EMAIL,
             to: `${email}`,
             subject: `hi ${username}`,
-            text: `<div>
+            text: `${username},
+            thank you so much for creating an account. hopefully you have fun using my app!make sure to add your buddies so you can see what pokemon they're looking for. enjoy!
+            PAKPAK`,
+            html: `<div>
                 <p>${username},</p>
                 <br>
-                <p>thank you so much for creating an account. hopefully you have fun using my app!
+                <p>thank you so much for creating an account. i hope you have fun using my app!
                 make sure to add your buddies so you can see what pokemon they're looking for. enjoy!</p>
                 <br>
                 <p>PAKPAK</p>
