@@ -275,8 +275,8 @@ $item-flex: (
   .delete-trade {
     visibility: hidden;
     position: absolute;
-    top: 1px;
-    right: 1px;
+    top: -7.5px;
+    right: -7.5px;
   }
 }
 
@@ -287,6 +287,7 @@ $item-flex: (
 }
 
 .icon-wrapper {
+  position: relative;
   background: rgb(224,98,96);
   background: linear-gradient(163deg, rgba(224,98,96,1) 35%, rgba(240,182,98,1) 100%);
   // border: 3px solid #737474;
@@ -320,7 +321,6 @@ $item-flex: (
 
 .search-button {
   @include button;
-
 }
 
 .add-buddy {
@@ -481,3 +481,14 @@ $item-flex: (
   }
 }
 
+@media (max-width: 480px) {
+  .header {
+    width: 100vw;
+  }
+  .login {
+    margin: 5vh;
+  }
+  .qr-code {
+    width: 80vw;
+  }
+}
