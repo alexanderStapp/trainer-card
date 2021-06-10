@@ -2,6 +2,7 @@ require('dotenv').config()
 const express = require('express')
 const session = require('express-session')
 const massive = require('massive')
+const path = require('path')
 
 const {CONNECTION_STRING, SESSION_SECRET, SERVER_PORT} = process.env
 
@@ -56,6 +57,12 @@ massive({
     //         io.to(body.roomID).emit('broadcast-join-room', body)
     //     })
     // })
+
+    app.use(express.static(__dirname + '../build'))
+
+    app.get('*', (res => {
+        res.sendFile(path.join(__dirname + '../build/index.html'))
+    }))
 
 // auth
     app.post('/auth/register', authCtrl.register)

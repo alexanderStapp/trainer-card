@@ -4,14 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {UserProvider} from './context/UserContext'
-import {HashRouter} from 'react-router-dom';
+import {BrowserRouter, HashRouter} from 'react-router-dom';
 import {CardProvider} from './context/CardContext';
 import {BuddyProvider} from './context/BuddyContext';
 import {TradeProvider} from './context/TradeContext'
+const Router = process.env.NODE_ENV === 'development' ? HashRouter : BrowserRouter
 
 ReactDOM.render(
   <React.StrictMode>
-    <HashRouter>
+    <Router>
       <UserProvider>
         <TradeProvider>
           <BuddyProvider>
@@ -21,7 +22,7 @@ ReactDOM.render(
           </BuddyProvider>
         </TradeProvider>
       </UserProvider>
-    </HashRouter>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
