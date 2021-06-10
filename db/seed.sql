@@ -1,6 +1,7 @@
 CREATE TABLE users (
     user_id SERIAL PRIMARY KEY,
     username VARCHAR(50),
+    email VARCHAR(100),
     password VARCHAR(1000),
     threeds VARCHAR(20),
     switch VARCHAR(20),

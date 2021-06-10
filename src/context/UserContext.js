@@ -6,6 +6,9 @@ export const UserContext = createContext()
 
 export const UserProvider = (props) => {
     const [user, setUser] = useState(null)
+    const [username, setUsername] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
     const {push} = useHistory()
 
     useEffect(() => {
@@ -22,8 +25,8 @@ export const UserProvider = (props) => {
             }).catch(err => console.log(err))
     }
 
-    const handleRegister = (username, password) => {
-        axios.post('/auth/register', {username, password})
+    const handleRegister = (username, email, password) => {
+        axios.post('/auth/register', {username, email, password})
             .then(res => {
                 setUser(res.data)
                 push('/dash')
@@ -39,6 +42,12 @@ export const UserProvider = (props) => {
         <UserContext.Provider value={{
             user,
             setUser,
+            username,
+            setUsername,
+            email,
+            setEmail,
+            password,
+            setPassword,
             handleLogin,
             handleRegister,
             handleLogout,

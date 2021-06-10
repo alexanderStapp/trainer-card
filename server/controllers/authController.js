@@ -3,14 +3,14 @@ const bcrypt = require('bcryptjs')
 module.exports = {
     register: async (req, res) => {
         const db = req.app.get('db')
-        const {username, password} = req.body
+        const {username, email, password} = req.body
         const [result] = await db.auth.check_username(username)
         if(result) {
             return res.status(409).send('username has been taken')
         }
         const salt = bcrypt.genSaltSync(10)
         const hash = bcrypt.hashSync(password, salt)
-        const [user] = await db.auth.register_user(username, hash)
+        const [user] = await db.auth.register_user(username, email, hash)
         delete user.password
         req.session.user = user
         await db.trades.create_trade(user.user_id, 0, 'any pokemon', 'https://cdn2.bulbagarden.net/upload/8/8e/Spr_3r_000.png', 0, 'any pokemon', 'https://cdn2.bulbagarden.net/upload/8/8e/Spr_3r_000.png')

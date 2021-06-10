@@ -1,5 +1,6 @@
 import {Switch, Route} from 'react-router-dom'
 import Auth from './components/Auth'
+import Register from './components/Register'
 import Dash from './components/Dash'
 import Card from './components/Card'
 import EditCard from './components/EditCard'
@@ -11,6 +12,7 @@ import QR from './components/QR'
 export default (
     <Switch>
         <Route exact path='/' component={Auth} />
+        <Route path='/register' component={Register} />
         <Route path='/dash' component={Dash} />
         <Route path='/search' component={Search} />
         <Route path='/editcard' component={EditCard} />

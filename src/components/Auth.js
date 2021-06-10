@@ -1,10 +1,10 @@
-import {useContext, useState} from 'react'
+import {useContext} from 'react'
 import {UserContext} from '../context/UserContext'
+import {Link} from 'react-router-dom'
 
 function Auth() {
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
-    const {handleLogin, handleRegister} = useContext(UserContext)
+    const {handleLogin, username, setUsername, password, setPassword} = useContext(UserContext)
+
     return (
         <form className='login'>
             <h1>TrainerCard</h1>
@@ -12,7 +12,7 @@ function Auth() {
             <input type='password' className='input' value={password} onChange={e => setPassword(e.target.value)} />
             <div className='auth-buttons'>
                 <button className='style-button' onClick={() => handleLogin(username, password)}>Login</button>
-                <button className='style-button' onClick={() => handleRegister(username, password)}>Register</button>
+                <Link to='/register'>Sign Up</Link>
             </div>
         </form>
     )
