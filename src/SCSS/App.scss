@@ -494,6 +494,12 @@ $item-flex: (
 	align-items: flex-start;
 }
 
+.nav-close {
+  position: absolute;
+  top: 2vh;
+  left: 60vw;
+}
+
 .menu-nav {
   overflow-y: scroll;
   list-style: none;
@@ -513,6 +519,7 @@ $item-flex: (
   width: 100%;
   a {
     display: block;
+    margin-top: 40px;
     padding: 10px 40px;
     text-decoration: none;
     color: #3fffd2;
