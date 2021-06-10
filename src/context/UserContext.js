@@ -31,7 +31,10 @@ export const UserProvider = (props) => {
                 setUser(res.data)
                 push('/dash')
             }).catch(err => console.log(err))
-        axios.get('/api/mail', {username, email})
+        axios.put('/api/mail', {username, email})
+            .then(res => {
+                console.log(res)
+            }).catch(err => console.log(err))
     }
 
     const handleLogout = () => {

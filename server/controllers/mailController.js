@@ -1,4 +1,3 @@
-require('dotenv').config()
 const {EMAIL, PASSWORD} = process.env
 const nodemailer = require('nodemailer');
 
@@ -29,9 +28,9 @@ module.exports = {
         
         transporter.sendMail(mailOptions, function(error, info){
             if(error) {
-                console.log(error);
+                res.status(500).send(error);
             } else {
-                console.log('Email sent: ' + info.response);
+                res.sendStatus(200);
             }
         });
     }

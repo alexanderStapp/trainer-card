@@ -83,4 +83,4 @@ massive({
     app.delete('/api/dash/:buddy_id', buddyCtrl.removeBuddy)
 
 // mail
-    app.get('/api/mail', mailCtrl.send)
+    app.put('/api/mail', mailCtrl.send)
