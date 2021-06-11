@@ -6,7 +6,7 @@ function QR(props) {
     return (
         <QRCode 
             className='qr-code'
-            value={`https://trainer-card.com/#/${username}`}
+            value={`https://trainer-card.com/${username}`}
             bgColor='#FFFFFF'
             fgColor='#000000'
         />
