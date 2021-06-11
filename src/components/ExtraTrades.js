@@ -12,7 +12,7 @@ function ExtraTrades(props) {
                     <div key={trade.trade_id} className='trade-item-extra'>
                             {trade.name1 === 'any pokemon' ?
                                 <div className='icon-wrapper'>
-                                    <img className='willing-icon' src='https://cdn2.bulbagarden.net/upload/8/8e/Spr_3r_000.png' alt={trade.name2}/>
+                                    <img className='willing-icon' src='https://cdn2.bulbagarden.net/upload/8/8e/Spr_3r_000.png' alt={trade.name1}/>
                                 </div>
                                 :
                                 <div className='icon-wrapper'>
