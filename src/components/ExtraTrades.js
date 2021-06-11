@@ -16,7 +16,7 @@ function ExtraTrades(props) {
                                 </div>
                                 :
                                 <div className='icon-wrapper'>
-                                    <img className='willing-icon' src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/${trade.poke_id2}.png`} alt={trade.name2}/>
+                                    <img className='willing-icon' src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/${trade.poke_id1}.png`} alt={trade.name2}/>
                                 </div>
                             }
                         <span className='trade-message'>
