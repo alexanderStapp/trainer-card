@@ -8,8 +8,8 @@ function Auth() {
     return (
         <form className='login' onSubmit={(e) => handleLogin(username, password, e)}>
             <h1>TrainerCard</h1>
-            <input className='input' value={username} onChange={e => setUsername(e.target.value)} />
-            <input type='password' className='input' value={password} onChange={e => setPassword(e.target.value)} />
+            <input className='input' placeholder='username' value={username} onChange={e => setUsername(e.target.value)} />
+            <input type='password' placeholder='password' className='input' value={password} onChange={e => setPassword(e.target.value)} />
             <div className='auth-buttons'>
                 <button className='style-button' type='submit'>Login</button>
                 <Link to='/register'>Sign Up</Link>
