@@ -26,7 +26,8 @@ export const UserProvider = (props) => {
             }).catch(err => console.log(err))
     }
 
-    const handleRegister = (username, email, password) => {
+    const handleRegister = (username, email, password, e) => {
+        e.preventDefault()
         axios.post('/auth/register', {username, email, password})
             .then(res => {
                 setUser(res.data)

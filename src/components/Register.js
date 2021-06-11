@@ -11,7 +11,7 @@ function Register() {
             <input className='input' placeholder='email' value={email} onChange={e => setEmail(e.target.value)} />
             <input type='password' placeholder='password' className='input' value={password} onChange={e => setPassword(e.target.value)} />
             <div className='auth-buttons'>
-                <button className='style-button' onClick={() => handleRegister(username, email, password)}>Register</button>
+                <button className='style-button' onClick={(e) => handleRegister(username, email, password, e)}>Register</button>
             </div>
         </form>
     )
