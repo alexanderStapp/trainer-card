@@ -1,5 +1,7 @@
 import axios from 'axios'
 import {createContext, useState} from 'react'
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const TradeContext = createContext()
 
@@ -14,6 +16,7 @@ export const TradeProvider = (props) => {
     const [initTrades, setInitTrades] = useState([])
     const [tradesMain, setTradesMain] = useState([])
     const [tradesExtra, setTradesExtra] = useState([])
+    const submit = () => toast.success('trade submitted!')
 
     const handleLooking = (name) => {
         name === 'any pokemon'
@@ -37,7 +40,8 @@ export const TradeProvider = (props) => {
         axios.post('api/trade', {lookingFor, lookingName, lookingSprite, willing, willingName, willingSprite})
             .then(
                 setLookingFor(anyPokemon),
-                setWilling(anyPokemon)
+                setWilling(anyPokemon),
+                submit()
             ).catch(err => console.log(err))
     }
 
