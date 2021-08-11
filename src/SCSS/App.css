@@ -23,6 +23,49 @@ button {
   outline: inherit;
 }
 
+.login {
+  font-family: Futura,Trebuchet MS,Arial,sans-serif;
+  font-weight: bold;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15vh;
+}
+
+.register {
+  font-family: Futura,Trebuchet MS,Arial,sans-serif;
+  font-weight: bold;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15vh;
+  height: 250px;
+}
+
+.input {
+  border: solid 1px #3a3a3a;
+  border-radius: 6px;
+  height: 30px;
+  padding: 0 10px 0 10px;
+}
+
+.auth-buttons {
+  width: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.auth-buttons button {
+  border: none;
+  background-color: #85FFBD;
+}
+
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
@@ -54,19 +97,12 @@ button {
 }
 
 .App {
-  background-color: #85FFBD;
-  background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+  background: #1c1c1c;
+  background: linear-gradient(48deg, #1c1c1c 0%, #4e4e4e 100%);
   text-align: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  align-items: center;
   min-height: 100%;
 }
 
@@ -79,83 +115,16 @@ button {
 .header {
   font-family: Futura,Trebuchet MS,Arial,sans-serif;
   font-weight: bold;
+  background-color: #85FFBD;
+  background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
   width: 600px;
   height: 60px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-line-pack: stretch;
-      align-content: stretch;
-}
-
-.login {
-  font-family: Futura,Trebuchet MS,Arial,sans-serif;
-  font-weight: bold;
-  height: 200px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin: 15vh;
-}
-
-.register {
-  font-family: Futura,Trebuchet MS,Arial,sans-serif;
-  font-weight: bold;
-  height: 200px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin: 15vh;
-  height: 250px;
-}
-
-.input {
-  border: solid 1px #3a3a3a;
-  border-radius: 6px;
-  height: 30px;
-  padding: 0 10px 0 10px;
-}
-
-.auth-buttons {
-  width: 200px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-around;
+  align-items: center;
+  align-content: stretch;
 }
 
 .extra-card {
@@ -191,15 +160,9 @@ button {
 .card-name {
   position: absolute;
   top: 14.8%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
   width: 52%;
   margin-left: 5%;
 }
@@ -207,15 +170,9 @@ button {
 .card-threeds {
   position: absolute;
   top: 23.8%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
   width: 52%;
   margin-left: 5%;
 }
@@ -223,15 +180,9 @@ button {
 .card-switch {
   position: absolute;
   top: 37.5%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
   width: 52%;
   margin-left: 5%;
 }
@@ -239,15 +190,9 @@ button {
 .card-home {
   position: absolute;
   top: 47%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
   width: 52%;
   margin-left: 5%;
 }
@@ -298,16 +243,9 @@ button {
   background: url(./svg/trainercard_back_v2.png);
   background-repeat: no-repeat;
   position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  align-items: center;
   padding-top: 4%;
 }
 
@@ -316,15 +254,9 @@ button {
   margin-bottom: 2.5%;
   margin-left: .9%;
   width: 93%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .trade-item-main img {
@@ -344,15 +276,9 @@ button {
 
 .trade-message {
   height: 62px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .add-trade {
@@ -375,14 +301,9 @@ button {
 .trade-item-extra {
   width: 354.19px;
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-around;
+  align-items: center;
   margin-top: -3px;
   margin-bottom: 20px;
 }
@@ -411,28 +332,15 @@ button {
 
 .search-form {
   width: 280px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .search-list {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .search-item {
@@ -442,15 +350,9 @@ button {
   border-radius: 6px;
   padding-left: 10px;
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .search-button {
@@ -484,16 +386,9 @@ button {
 }
 
 .buddies-view {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  align-items: center;
   width: 340px;
 }
 
@@ -508,26 +403,15 @@ button {
   border-left: 5px solid #6099af;
   border-radius: 6px;
   padding: 10px;
-  -webkit-box-shadow: 0 0 10px lightgrey;
-          box-shadow: 0 0 10px lightgrey;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  box-shadow: 0 0 10px lightgrey;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .buddy-profile {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
 
 .buddy-profile img {
@@ -556,16 +440,9 @@ button {
 }
 
 .bud-trade, .bud-trade-item {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .bud-trade p, .bud-trade-item p {
@@ -582,37 +459,22 @@ button {
 }
 
 .poke-view {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .trade-launch {
   background: #c4fffc;
-  position: -webkit-sticky;
   position: sticky;
   top: 10px;
   width: 460px;
   border-radius: 2px solid #26c1ff;
   border-radius: 6px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .trade-launch button {
@@ -635,8 +497,7 @@ button {
   border-bottom: 5px solid #6099af;
   border-radius: 6px;
   padding: 10px;
-  -webkit-box-shadow: 0 0 10px lightgrey;
-          box-shadow: 0 0 10px lightgrey;
+  box-shadow: 0 0 10px lightgrey;
 }
 
 .poke-list {
@@ -646,15 +507,9 @@ button {
 .poke-item {
   font-family: Futura,Trebuchet MS,Arial,sans-serif;
   font-weight: bold;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .poke-item button {
@@ -668,19 +523,10 @@ button {
 }
 
 .prev-next {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
-      -ms-flex-direction: row-reverse;
-          flex-direction: row-reverse;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .prev-next button {
@@ -701,15 +547,9 @@ button {
 .nav-open {
   width: 90vw;
   margin-top: 15px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .nav-close {

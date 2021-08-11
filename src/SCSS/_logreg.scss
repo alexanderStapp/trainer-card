@@ -1,0 +1,42 @@
+@mixin futura {
+    font-family: Futura,Trebuchet MS,Arial,sans-serif;
+    font-weight: bold;
+}
+
+@mixin log-reg {
+    @include futura;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15vh;
+}
+  
+.login {
+    @include log-reg;
+}
+
+.register {
+    @include log-reg;
+    height: 250px;
+}
+
+.input {
+    border: solid 1px rgb(58, 58, 58);
+    border-radius: 6px;
+    height: 30px;
+    padding: 0 10px 0 10px;
+}
+
+.auth-buttons {
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    button {
+        border: none;
+        background-color: #85FFBD;
+    }
+}

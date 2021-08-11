@@ -1,4 +1,5 @@
 @import './resets';
+@import './logreg';
 @import './scrollbar';
 
 @font-face {
@@ -29,8 +30,10 @@
 }
 
 .App {
-  background-color: #85FFBD;
-  background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+  // background-color: #85FFBD;
+  // background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+  background: rgb(28,28,28);
+  background: linear-gradient(48deg, rgba(28,28,28,1) 0%, rgba(78,78,78,1) 100%);
   text-align: center;
   display: flex;
 	flex-direction: column;
@@ -46,46 +49,16 @@
 
 .header { 
 	@include futura;
+  background-color: #85FFBD;
+  background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
   width: 600px;
   height: 60px;
   display: flex;
   justify-content: space-around;
 	align-items: center;
 	align-content: stretch;
-}
-
-@mixin log-reg {
-  @include futura;
-  height: 200px;
-  display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	align-items: center;
-  margin: 15vh;
-}
-
-.login {
-  @include log-reg;
-}
-
-.register {
-  @include log-reg;
-  height: 250px;
-}
-
-.input {
-	border: solid 1px rgb(58, 58, 58);
-  border-radius: 6px;
-  height: 30px;
-  padding: 0 10px 0 10px;
-}
-
-.auth-buttons {
-  width: 200px;
-  display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
 }
 
 .extra-card {
